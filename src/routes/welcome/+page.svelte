@@ -5,9 +5,11 @@
 	<title>CAMI</title>
 </svelte:head>
 
-<section>
-	<h1>CAMI</h1>
-</section>
+<div>
+	<div class="container">
+	
+	</div>
+</div>
 
 <style>
 	section {
