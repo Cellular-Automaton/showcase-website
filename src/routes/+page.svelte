@@ -8,19 +8,29 @@
 
 <div>
   <div class="container">
-    <!-- svelte-ignore a11y-img-redundant-alt -->
-    <img src={limg} alt="lenia image." class="lenia-high" />
+    <img src={limg} alt="lenia with colours." class="lenia-top" />
+    <img src={limg} alt="lenia with colours." class="lenia-bottom" />
   </div>
 </div>
 
 <style>
-  .lenia-high {
+  .lenia-top {
     z-index: 1;
-    position: absolute;
-    left: -41px;
+    position: fixed;
+    left: -4vw;
     top: 1vh;
     width: 393.585px;
     height: 305.576px;
     transform: rotate(87deg);
+  }
+  .lenia-bottom {
+    z-index: 1;
+    position: fixed;
+    right: -10vw;
+    overflow: hidden;
+    bottom: -10vh;
+    width: 393.585px;
+    height: 305.576px;
+    transform: rotate(47deg);
   }
 </style>

@@ -93,7 +93,7 @@
   }
 
   a:hover {
-    color: var(--color-theme-1);
+    color: #1956e5;
   }
 
   .separator {

@@ -89,7 +89,7 @@ button:focus:not(:focus-visible) {
   }
 }
 
-.visually-hidden {
+/* .visually-hidden {
   border: 0;
   clip: rect(0 0 0 0);
   height: auto;
@@ -99,4 +99,4 @@ button:focus:not(:focus-visible) {
   position: absolute;
   width: 1px;
   white-space: nowrap;
-}
+} */
