@@ -1,0 +1,128 @@
+<script>
+  import { page } from '$app/stores';
+  import logo from '$lib/images/Logo.svg';
+
+  function onClick() {
+    // TODO: need to change url to visualizer
+    window.open('http://www.duckduckgo.com', '_blank');
+  }
+</script>
+
+<header class="d-flex flex-column container-fluid">
+  <nav class="container-fluid">
+    <ul class="d-flex justify-content-between row container-fluid align-items-center">
+      <li class="col d-flex justify-content-start align-items-center"><img src={logo} alt="logo" class="logo" /></li>
+      <li aria-current={$page.url.pathname === '/' ? 'page' : undefined} class="col d-flex title justify-content-center">
+        <a href="/welcome" style="font-size: xx-large;" class="title">CAMI</a>
+      </li>
+      <li class="col d-flex title justify-content-end"><button class="visu" on:click={onClick}>Visualize</button></li>
+    </ul>
+  </nav>
+  <div class="separator"></div>
+</header>
+
+<style scoped>
+  header {
+    position: absolute;
+    z-index: 10000;
+    display: flex;
+    background-color: #111112;
+    width: 100vw;
+    height: 12vh;
+    padding: 2vh 0px;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    color: #6956e5;
+  }
+
+  ul {
+    position: relative;
+    padding: 0;
+    margin: 0;
+    height: 3em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    background: var(--background);
+    background-size: contain;
+  }
+
+  li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+  }
+
+  li[aria-current='page']::before {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: var(--size) solid transparent; */
+    /* border-top: var(--size) solid var(--color-theme-1); */
+  }
+
+  nav a {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    padding: 0 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    transition: color 0.2s linear;
+    color: #6956e5;
+    text-align: center;
+    font-family: Roboto;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+
+  a:hover {
+    color: var(--color-theme-1);
+  }
+
+  .separator {
+    width: 100%;
+    margin-top: 1vh;
+    height: 1px;
+    background-color: whitesmoke;
+    overflow: hidden;
+  }
+
+  .title {
+    font-size: 5rem;
+    font-weight: 700;
+  }
+
+  .logo {
+    width: 4vw;
+    position: relative;
+  }
+
+  .visu {
+    border-radius: 25px;
+    background: #6956e5;
+    display: flex;
+    padding: 5px 20px;
+    flex-direction: column;
+    align-items: center;
+    font-size: 25px;
+    gap: 10px;
+    border-color: #6956e5;
+  }
+</style>
