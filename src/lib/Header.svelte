@@ -1,7 +1,11 @@
 <script>
   import { page } from '$app/stores';
   import logo from '$lib/images/Logo.svg';
+  import frflag from '$lib/images/frflag.svg';
+  import ukflag from '$lib/images/ukflag.svg';
 
+  $: lang = $page.params?.lang;
+  $: params = $page.url.pathname.slice(3);
   function onClick() {
     // TODO: need to change url to visualizer
     window.open('http://www.duckduckgo.com', '_blank');
@@ -12,10 +16,18 @@
   <nav class="container-fluid">
     <ul class="d-flex justify-content-between row container-fluid align-items-center">
       <li class="col d-flex justify-content-start align-items-center"><img src={logo} alt="logo" class="logo" /></li>
-      <li aria-current={$page.url.pathname === '/' ? 'page' : undefined} class="col d-flex title justify-content-center">
-        <a href="/welcome" style="font-size: xx-large;" class="title">CAMI</a>
+      <li aria-current={$page.url.pathname === '/' ? 'page' : undefined} class="col d-flex justify-content-center title">
+        <a href={'/' + lang + '/welcome'} style="font-size: xx-large;" class="title">CAMI</a>
       </li>
-      <li class="col d-flex title justify-content-end"><button class="visu" on:click={onClick}>Visualize</button></li>
+      <li class="col d-flex justify-content-center flag">
+        {#if lang === 'en'}
+          <a href={'/fr' + params}><img src={frflag} alt="french flag" class="flag-icon" /></a>
+        {/if}
+        {#if lang === 'fr'}
+          <a href={'/en' + params}><img src={ukflag} alt="english flag" class="flag-icon" /></a>
+        {/if}
+      </li>
+      <li class="col d-flex justify-content-end visualizer"><button class="visu" on:click={onClick}>Visualize</button></li>
     </ul>
   </nav>
   <div class="separator"></div>
@@ -23,7 +35,7 @@
 
 <style scoped>
   header {
-    position: absolute;
+    position: fixed;
     z-index: 10000;
     display: flex;
     background-color: #111112;
@@ -96,6 +108,11 @@
     color: #1956e5;
   }
 
+  button:hover {
+    background: #1956e5;
+    border-color: #1956e5;
+  }
+
   .separator {
     width: 100%;
     margin-top: 1vh;
@@ -105,15 +122,21 @@
   }
 
   .title {
+    flex-grow: 8;
     font-size: 5rem;
     font-weight: 700;
   }
 
   .logo {
     width: 4vw;
+    min-width: 2vw;
+    min-height: 7vh;
     position: relative;
   }
 
+  .visualizer {
+    flex-grow: 1;
+  }
   .visu {
     border-radius: 25px;
     background: #6956e5;
@@ -124,5 +147,11 @@
     font-size: 25px;
     gap: 10px;
     border-color: #6956e5;
+  }
+  .flag {
+    max-width: 3vw;
+  }
+  .flag-icon {
+    height: 3vh;
   }
 </style>

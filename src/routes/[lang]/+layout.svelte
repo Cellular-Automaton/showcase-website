@@ -1,6 +1,11 @@
 <script>
   import Header from '$lib/Header.svelte';
+  import logo from '$lib/images/Logo.svg';
 </script>
+
+<svelte:head>
+  <link rel="icon" type="image/svg" href={logo} />
+</svelte:head>
 
 <div class="app">
   <Header />
@@ -16,6 +21,6 @@
   }
   main {
     z-index: 9;
-    padding-top: 6vh;
+    padding-top: 12vh;
   }
 </style>
