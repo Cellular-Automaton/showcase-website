@@ -4,7 +4,7 @@
   import frflag from '$lib/images/frflag.svg';
   import ukflag from '$lib/images/ukflag.svg';
 
-  $: lang = $page.params?.lang;
+  $: lang = $page.params?.lang ?? 'en';
   $: params = $page.url.pathname.slice(3);
   function onClick() {
     // TODO: need to change url to visualizer

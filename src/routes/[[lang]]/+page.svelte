@@ -1,12 +1,17 @@
 <script lang="ts">
   import Background from '$lib/Background.svelte';
   import { page } from '$app/stores';
-  import { languages } from '$lib/constants/languages';
+  import { languages, isOfLangType } from '$lib/constants/languages';
   import type { Languages } from '$lib/constants/languages';
   import planer from '$lib/images/lenia-planer.png';
+  import { error } from '@sveltejs/kit';
 
-  $: lang = $page.params?.lang;
+  $: lang = $page.params?.lang ?? 'en';
   $: language = lang as Languages;
+
+  $: if (!isOfLangType(language)) {
+    throw error(400);
+  }
 </script>
 
 <svelte:head>
