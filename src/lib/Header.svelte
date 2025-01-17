@@ -1,14 +1,22 @@
-<script>
+<script lang="ts">
   import { page } from '$app/stores';
   import logo from '$lib/images/Logo.svg';
+  import { languages, isOfLangType } from '$lib/constants/languages';
+  import type { Languages } from '$lib/constants/languages';
   import frflag from '$lib/images/frflag.svg';
   import ukflag from '$lib/images/ukflag.svg';
+  import { error } from '@sveltejs/kit';
 
   $: lang = $page.params?.lang ?? 'en';
+  $: language = lang as Languages;
   $: params = $page.url.pathname.slice(3);
   function onClick() {
     // TODO: need to change url to visualizer
     window.open('http://www.duckduckgo.com', '_blank');
+  }
+
+  $: if (!isOfLangType(language)) {
+    throw error(400);
   }
 </script>
 
@@ -27,7 +35,7 @@
           <a href={'/en' + params}><img src={ukflag} alt="english flag" class="flag-icon" /></a>
         {/if}
       </li>
-      <li class="col d-flex justify-content-end visualizer"><button class="visu" on:click={onClick}>Visualize</button></li>
+      <li class="col d-flex justify-content-end visualizer"><button class="visu" on:click={onClick}>{languages[language]?.download}</button></li>
     </ul>
   </nav>
   <div class="separator"></div>

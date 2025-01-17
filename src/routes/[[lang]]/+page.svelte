@@ -26,6 +26,7 @@
       <h1>{languages[language]?.subtitle_1}</h1>
       <p>{@html languages[language]?.cami_pres.join('<br/>')}</p>
       <h1>{languages[language]?.subtitle_2}</h1>
+      <p>{@html languages[language]?.automaton}</p>
       <h1>{languages[language]?.subtitle_3}</h1>
       <div>
         <img src={planer} alt="lenia planer, element" class="left" />
@@ -55,7 +56,7 @@
     flex-direction: column;
     align-items: center;
     max-width: 80vw;
-    text-align: center;
+    text-align: start;
   }
   img.left {
     float: left;
