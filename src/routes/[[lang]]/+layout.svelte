@@ -3,7 +3,6 @@
   import Footer from '$lib/Footer.svelte';
   import Header from '$lib/Header.svelte';
   import logo from '$lib/images/Logo.svg';
-  import { DarkMode } from 'flowbite-svelte';
 </script>
 
 <svelte:head>
@@ -13,9 +12,8 @@
 <div class="app">
   <Header />
   <Background />
-  <DarkMode hidden />
   <main><slot /></main>
-  <Footer/>
+  <Footer />
 </div>
 
 <style>

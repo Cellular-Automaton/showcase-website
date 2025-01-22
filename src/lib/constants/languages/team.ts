@@ -1,6 +1,6 @@
 export const languages = {
-  en: { home: 'Home', team: 'The team' },
-  fr: { home: 'Accueil', team: "L'équipe" }
+  en: { title1: 'Who are we ?' },
+  fr: { title1: 'Who are we ?' }
 };
 
 export type Languages = keyof typeof languages;

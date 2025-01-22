@@ -6,9 +6,11 @@
   import frflag from '$lib/images/frflag.svg';
   import ukflag from '$lib/images/ukflag.svg';
   import { error } from '@sveltejs/kit';
-  import { Navbar, NavBrand, NavHamburger, NavUl, NavLi, Button } from 'flowbite-svelte';
+  import { Navbar, NavBrand, NavHamburger, NavUl, NavLi, Button, Dropdown, DropdownItem, DarkMode } from 'flowbite-svelte';
+  import { ChevronDownOutline } from 'flowbite-svelte-icons';
 
   $: lang = $page.params?.lang ?? 'en';
+  $: activeUrl = $page.url.pathname;
   $: language = lang as Languages;
   $: params = $page.url.pathname.slice(3);
   $: if (!isOfLangType(language)) {
@@ -16,12 +18,12 @@
   }
 </script>
 
-<Navbar color="dark" class="px-2 sm:px-4 py-2.5 fixed w-full z-20 top-0 start-0 border-b p-0" let:hidden let:toggle>
+<Navbar color="dark" class="fixed start-0 top-0 z-20 w-full border-b p-0" let:hidden let:toggle>
   <NavBrand href={'/' + lang}>
     <img src={logo} alt="logo" class="logo" />
     <span class="title">CAMI</span>
   </NavBrand>
-  <div class="flex md:order-3">
+  <div class="flex space-x-3 md:order-3">
     <div class="flag flex justify-center">
       {#if lang === 'en'}
         <a href={'/fr' + params}><img src={frflag} alt="french flag" class="flag-icon" /></a>
@@ -30,15 +32,20 @@
         <a href={'/en' + params}><img src={ukflag} alt="english flag" class="flag-icon" /></a>
       {/if}
     </div>
-    <Button href={'/' + lang + '/download'} size="sm">Get started</Button>
-    <NavHamburger on:click={toggle} />
+    <DarkMode />
+    <Button href={'/' + lang + '/download'} size="sm" class="text-lg">{languages[language].download}</Button>
   </div>
-  <NavUl {hidden} class="!flex !flex-row !border-0 !p-0">
-    <NavLi class='text-lg' href={'/' + lang}>{languages[language].home}</NavLi>
-    <NavLi class='text-lg' href={lang + '/team'}>{languages[language].team}</NavLi>
-    <!-- <NavLi class='text-lg' > -->
-    <!--   <DarkMode {btnClass} /> -->
-    <!-- </NavLi> -->
+  <NavUl {hidden} class="!flex !flex-row !border-0 !p-0 text-lg" {activeUrl}>
+    <NavLi class="text-lg" href={'/' + lang}>{languages[language].home}</NavLi>
+    <NavLi class="text-lg" href={'/' + lang + '/team'}>{languages[language].team}</NavLi>
+    <NavLi class="cursor-pointer text-lg">
+      {languages[language].dropdown}<ChevronDownOutline class="ms-2 inline h-6 w-6 text-primary-800 dark:text-white" />
+    </NavLi>
+    <Dropdown color="dark" class="z-20 w-44">
+      <DropdownItem href={'/' + lang + '/documentation/overview'}>{languages[language].item1}</DropdownItem>
+      <DropdownItem href={'/' + lang + '/documentation/get-started'}>{languages[language].item2}</DropdownItem>
+      <DropdownItem href={'/' + lang + '/documentation/plugins'}>{languages[language].item3}</DropdownItem>
+    </Dropdown>
   </NavUl>
 </Navbar>
 
