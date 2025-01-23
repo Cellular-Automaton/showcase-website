@@ -1,6 +1,9 @@
 <script>
+  import Background from '$lib/Background.svelte';
+  import Footer from '$lib/Footer.svelte';
   import Header from '$lib/Header.svelte';
   import logo from '$lib/images/Logo.svg';
+  // import { DarkMode } from 'flowbite-svelte';
 </script>
 
 <svelte:head>
@@ -9,18 +12,21 @@
 
 <div class="app">
   <Header />
+  <Background />
+  <!-- <DarkMode hidden /> -->
   <main><slot /></main>
+  <Footer />
 </div>
 
 <style>
   .app {
     min-height: 100vh;
-    background-color: #111112;
+    background-color: theme('colors.primary.0');
     overflow-x: hidden;
     max-width: 100%;
   }
   main {
     z-index: 9;
-    padding-top: 12vh;
+    padding-top: 19vh;
   }
 </style>

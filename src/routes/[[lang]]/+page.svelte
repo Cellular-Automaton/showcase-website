@@ -1,8 +1,7 @@
 <script lang="ts">
-  import Background from '$lib/Background.svelte';
   import { page } from '$app/stores';
-  import { languages, isOfLangType } from '$lib/constants/languages';
-  import type { Languages } from '$lib/constants/languages';
+  import { languages, isOfLangType } from '$lib/constants/languages/home';
+  import type { Languages } from '$lib/constants/languages/home';
   import planer from '$lib/images/lenia-planer.png';
   import { error } from '@sveltejs/kit';
 
@@ -21,7 +20,6 @@
 <!--  eslint-disable svelte/no-at-html-tags -->
 <div>
   <div class="container">
-    <Background />
     <div class="homepage">
       <h1>{languages[language]?.subtitle_1}</h1>
       <p>{@html languages[language]?.cami_pres.join('<br/>')}</p>
@@ -38,7 +36,7 @@
 
 <style>
   h1 {
-    color: var(--base-white, #fff);
+    color: theme('colors.primary.10');
     font-family: Inter;
     font-size: 45px;
     font-style: normal;
@@ -47,7 +45,7 @@
   }
 
   p {
-    color: #838289;
+    color: theme('colors.primary.50');
     font-size: 20px;
   }
 
