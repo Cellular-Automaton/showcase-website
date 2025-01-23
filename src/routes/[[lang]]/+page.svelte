@@ -45,7 +45,7 @@
   }
 
   p {
-    color: theme('colors.primary.100');
+    color: theme('colors.primary.50');
     font-size: 20px;
   }
 

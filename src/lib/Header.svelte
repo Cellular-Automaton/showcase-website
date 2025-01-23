@@ -6,7 +6,7 @@
   import frflag from '$lib/images/frflag.svg';
   import ukflag from '$lib/images/ukflag.svg';
   import { error } from '@sveltejs/kit';
-  import { Navbar, NavBrand, NavHamburger, NavUl, NavLi, Button, Dropdown, DropdownItem, DarkMode } from 'flowbite-svelte';
+  import { Navbar, NavBrand, NavLi, Button, Dropdown, DropdownItem, DarkMode, NavUl } from 'flowbite-svelte';
   import { ChevronDownOutline } from 'flowbite-svelte-icons';
 
   $: lang = $page.params?.lang ?? 'en';
@@ -32,7 +32,7 @@
         <a href={'/en' + params}><img src={ukflag} alt="english flag" class="flag-icon" /></a>
       {/if}
     </div>
-    <DarkMode />
+    <DarkMode hidden />
     <Button href={'/' + lang + '/download'} size="sm" class="text-lg">{languages[language].download}</Button>
   </div>
   <NavUl {hidden} class="!flex !flex-row !border-0 !p-0 text-lg" {activeUrl}>
