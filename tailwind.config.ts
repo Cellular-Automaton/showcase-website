@@ -1,12 +1,13 @@
 import type { Config } from 'tailwindcss';
-import flowbitePlugin from 'flowbite/plugin';
+// import plugin from 'flowbite/plugin';
 
 export default {
   content: [
     './src/**/*.{html,js,svelte,ts,css}', // Adjust to match your project structure
     'node_modules/flowbite-svelte/**/*.{html,js,svelte,ts}'
   ],
-  darkMode: 'class',
+  darkMode: ['class', '[data-theme="dark"]'],
+  safelist: ['dark'],
   theme: {
     extend: {
       colors: {
@@ -22,10 +23,10 @@ export default {
           600: '#5C43C1', // Deeper violet
           700: '#4F3A9F', // Darker violet
           800: '#422682', // Very deep violet
-          900: '#3A1D6A', // Darkest violet
+          900: '#3A1D6A' // Darkest violet
         }
       }
     }
   },
-  plugins: [flowbitePlugin]
-} satisfies Config;
+  plugins: []
+} as Config;

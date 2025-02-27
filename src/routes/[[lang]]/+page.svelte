@@ -18,8 +18,8 @@
 </svelte:head>
 
 <!--  eslint-disable svelte/no-at-html-tags -->
-<div>
-  <div class="container">
+<div class="container">
+  <div>
     <div class="homepage">
       <h1>{languages[language]?.subtitle_1}</h1>
       <p>{@html languages[language]?.cami_pres.join('<br/>')}</p>

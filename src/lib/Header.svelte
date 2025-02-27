@@ -18,7 +18,7 @@
   }
 </script>
 
-<Navbar color="dark" class="fixed start-0 top-0 z-20 w-full border-b p-0" let:hidden let:toggle>
+<Navbar color="dark" class="fixed start-0 top-0 z-20 w-full border-b p-0" let:hidden>
   <NavBrand href={'/' + lang}>
     <img src={logo} alt="logo" class="logo" />
     <span class="title">CAMI</span>
@@ -35,17 +35,17 @@
     <DarkMode hidden />
     <Button href={'/' + lang + '/download'} size="sm" class="text-lg">{languages[language].download}</Button>
   </div>
-  <NavUl {hidden} class="!flex !flex-row !border-0 !p-0 text-lg" {activeUrl}>
+  <NavUl {hidden} class="!flex" {activeUrl}>
     <NavLi class="text-lg" href={'/' + lang}>{languages[language].home}</NavLi>
     <NavLi class="text-lg" href={'/' + lang + '/team'}>{languages[language].team}</NavLi>
     <NavLi class="cursor-pointer text-lg">
       {languages[language].dropdown}<ChevronDownOutline class="ms-2 inline h-6 w-6 text-primary-800 dark:text-white" />
+      <Dropdown color="dark">
+        <DropdownItem href={'/' + lang + '/documentation/overview'}>{languages[language].item1}</DropdownItem>
+        <DropdownItem href={'/' + lang + '/documentation/get-started'}>{languages[language].item2}</DropdownItem>
+        <DropdownItem href={'/' + lang + '/documentation/plugins'}>{languages[language].item3}</DropdownItem>
+      </Dropdown>
     </NavLi>
-    <Dropdown color="dark" class="z-20 w-44">
-      <DropdownItem href={'/' + lang + '/documentation/overview'}>{languages[language].item1}</DropdownItem>
-      <DropdownItem href={'/' + lang + '/documentation/get-started'}>{languages[language].item2}</DropdownItem>
-      <DropdownItem href={'/' + lang + '/documentation/plugins'}>{languages[language].item3}</DropdownItem>
-    </Dropdown>
   </NavUl>
 </Navbar>
 
