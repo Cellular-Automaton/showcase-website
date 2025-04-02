@@ -18,8 +18,8 @@
 </svelte:head>
 
 <!--  eslint-disable svelte/no-at-html-tags -->
-<div>
-  <div class="container">
+<div class="box">
+  <div>
     <div class="homepage">
       <h1>{languages[language]?.subtitle_1}</h1>
       <p>{@html languages[language]?.cami_pres.join('<br/>')}</p>
@@ -35,6 +35,7 @@
 </div>
 
 <style>
+  @import '../../global.css';
   h1 {
     color: theme('colors.primary.10');
     font-family: Inter;
@@ -55,6 +56,8 @@
     align-items: center;
     max-width: 80vw;
     text-align: start;
+    margin-left: auto;
+    margin-right: auto;
   }
   img.left {
     float: left;

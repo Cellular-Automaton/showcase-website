@@ -35,9 +35,9 @@
       updateTheme();
     });
 
-// Listen for localStorage changes
+    // Listen for localStorage changes
     const onStorageChange = (event: StorageEvent) => {
-      console.log(event)
+      console.log(event);
       if (event.key === storageKey && event.newValue) {
         preference = event.newValue;
         updateTheme();
@@ -63,7 +63,7 @@
 </svelte:head>
 
 <div class="app" data-theme={preference}>
-  <Header />
+  <!-- <Header /> -->
   <Background />
   <h1>{$page.status} - {$page.error?.message}</h1>
   <Footer />
