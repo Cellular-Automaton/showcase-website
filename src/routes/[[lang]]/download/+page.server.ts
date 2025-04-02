@@ -49,7 +49,7 @@ export const load: PageLoad = async () => {
       }
     })
     .then((data) => {
-      data.data.forEach((item) => {
+      data.data?.forEach((item) => {
         releases.push({windows: [], linux: [], name: item.name, tag: item.tag_name, released: item.published_at, url: item.html_url});
         item.assets.forEach((asset) => {
           if (asset.name.endsWith('exe')) {
@@ -60,7 +60,8 @@ export const load: PageLoad = async () => {
         });
       });
     })
-    .catch(() => {
+    .catch((err) => {
+      console.log(err.message)
       redirect(404, '/error');
     });
 

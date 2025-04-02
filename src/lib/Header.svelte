@@ -18,7 +18,7 @@
   }
 </script>
 
-<Navbar color="dark" class="fixed start-0 top-0 z-20 w-full border-b p-0" let:hidden>
+<Navbar color="dark" class="start-0 top-0 z-20 w-full border-b p-0" let:hidden>
   <NavBrand href={'/' + lang}>
     <img src={logo} alt="logo" class="logo" />
     <span class="title">CAMI</span>
@@ -49,7 +49,7 @@
   </NavUl>
 </Navbar>
 
-<style scoped>
+<style>
   .title {
     padding-left: 1vw;
     align-self: center;

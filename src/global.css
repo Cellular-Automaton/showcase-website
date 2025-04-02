@@ -1,15 +1,53 @@
 :root {
-  --primary-10: theme('colors.primary.100');
-  --primary-50: theme('colors.primary.100');
-  --primary-100: theme('colors.primary.500');
-  --primary-200: theme('colors.primary.900');
-  --primary-300: theme('colors.primary.900');
-  --primary-400: theme('colors.primary.900');
-  --primary-500: theme('colors.primary.900');
-  --primary-600: theme('colors.primary.900');
-  --primary-700: theme('colors.primary.900');
-  --primary-800: theme('colors.primary.900');
+  --primary-0: theme('colors.primary.0');
+  --primary-10: theme('colors.primary.10');
+  --primary-50: theme('colors.primary.50');
+  --primary-100: theme('colors.primary.100');
+  --primary-200: theme('colors.primary.200');
+  --primary-300: theme('colors.primary.300');
+  --primary-400: theme('colors.primary.400');
+  --primary-500: theme('colors.primary.500');
+  --primary-600: theme('colors.primary.600');
+  --primary-700: theme('colors.primary.700');
+  --primary-800: theme('colors.primary.800');
   --primary-900: theme('colors.primary.900');
+}
+
+.box {
+  width: 100%;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (min-width: 640px) {
+  .box {
+    max-width: 640px;
+  }
+}
+@media (min-width: 768px) {
+  .box {
+    max-width: 768px;
+  }
+}
+@media (min-width: 1024px) {
+  .box {
+    max-width: 1024px;
+  }
+}
+@media (min-width: 1280px) {
+  .box {
+    max-width: 1280px;
+  }
+}
+@media (min-width: 1536px) {
+  .box {
+    max-width: 1536px;
+  }
+}
+@media (min-width: 1800px) {
+  .box {
+    max-width: 1800px;
+  }
 }
 
 /* manrope-latin-200-normal */
@@ -21,8 +59,9 @@
   src:
     url(https://cdn.jsdelivr.net/fontsource/fonts/manrope@latest/latin-200-normal.woff2) format('woff2'),
     url(https://cdn.jsdelivr.net/fontsource/fonts/manrope@latest/latin-200-normal.woff) format('woff');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122,
-    U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
+    U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 /* manrope-latin-300-normal */
@@ -34,8 +73,9 @@
   src:
     url(https://cdn.jsdelivr.net/fontsource/fonts/manrope@latest/latin-300-normal.woff2) format('woff2'),
     url(https://cdn.jsdelivr.net/fontsource/fonts/manrope@latest/latin-300-normal.woff) format('woff');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122,
-    U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
+    U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 /* manrope-latin-400-normal */
@@ -47,8 +87,9 @@
   src:
     url(https://cdn.jsdelivr.net/fontsource/fonts/manrope@latest/latin-400-normal.woff2) format('woff2'),
     url(https://cdn.jsdelivr.net/fontsource/fonts/manrope@latest/latin-400-normal.woff) format('woff');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122,
-    U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
+    U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 /* manrope-latin-500-normal */
@@ -60,8 +101,9 @@
   src:
     url(https://cdn.jsdelivr.net/fontsource/fonts/manrope@latest/latin-500-normal.woff2) format('woff2'),
     url(https://cdn.jsdelivr.net/fontsource/fonts/manrope@latest/latin-500-normal.woff) format('woff');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122,
-    U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
+    U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 /* manrope-latin-600-normal */
@@ -73,8 +115,9 @@
   src:
     url(https://cdn.jsdelivr.net/fontsource/fonts/manrope@latest/latin-600-normal.woff2) format('woff2'),
     url(https://cdn.jsdelivr.net/fontsource/fonts/manrope@latest/latin-600-normal.woff) format('woff');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122,
-    U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
+    U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 /* manrope-latin-700-normal */
@@ -86,8 +129,9 @@
   src:
     url(https://cdn.jsdelivr.net/fontsource/fonts/manrope@latest/latin-700-normal.woff2) format('woff2'),
     url(https://cdn.jsdelivr.net/fontsource/fonts/manrope@latest/latin-700-normal.woff) format('woff');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122,
-    U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
+    U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 /* manrope-latin-800-normal */
@@ -99,6 +143,7 @@
   src:
     url(https://cdn.jsdelivr.net/fontsource/fonts/manrope@latest/latin-800-normal.woff2) format('woff2'),
     url(https://cdn.jsdelivr.net/fontsource/fonts/manrope@latest/latin-800-normal.woff) format('woff');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122,
-    U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
+    U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }

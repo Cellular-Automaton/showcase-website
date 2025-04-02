@@ -3,11 +3,9 @@
 </script>
 
 <div>
-  <div class="container">
-    <!-- lenia background images -->
-    <img src={limg} alt="lenia with colours." class="lenia-top" />
-    <img src={limg} alt="lenia with colours." class="lenia-bottom" />
-  </div>
+  <!-- lenia background images -->
+  <img src={limg} alt="lenia with colours." class="lenia-top" />
+  <img src={limg} alt="lenia with colours." class="lenia-bottom" />
 </div>
 
 <style>

@@ -1,11 +1,34 @@
 <script>
+  import Background from '$lib/Background.svelte';
+  import Footer from '$lib/Footer.svelte';
+  import Header from '$lib/Header.svelte';
+  import logo from '$lib/images/Logo.svg';
   import '../app.css';
-  import { onMount } from 'svelte';
-
-  onMount(() => {
-    document.documentElement.classList.add('dark'); // Ensure class is applied
-    document.documentElement.setAttribute('data-theme', 'dark'); // Some libraries use this
-  });
 </script>
 
-<slot></slot>
+<svelte:head>
+  <link rel="icon" type="image/svg" href={logo} />
+</svelte:head>
+
+<div class="app">
+  <Background />
+  <main>
+    <Header />
+    <slot />
+  </main>
+  <Footer />
+</div>
+
+<style>
+  .app {
+    min-height: 100vh;
+    background-color: theme('colors.primary.0');
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+  main {
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+  }
+</style>

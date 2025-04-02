@@ -1,7 +1,6 @@
 <script lang="ts">
-  import { languages } from '$lib/constants/languages/download';
+  import { languages, isOfLangType } from '$lib/constants/languages/download';
   import { Button, TabItem, Table, TableBody, TableBodyCell, TableBodyRow, TableHead, TableHeadCell, Tabs } from 'flowbite-svelte';
-  import { isOfLangType } from '$lib/constants/languages/download';
   import { error } from '@sveltejs/kit';
   import type { PageProps } from './$types';
   import { page } from '$app/state';
