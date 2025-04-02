@@ -3,7 +3,6 @@
   import UlRedirect from './UlRedirect.svelte';
 
   let props = $props();
-  console.log(props);
   let state = $state('close');
 
   const changeDisplay = () => {
@@ -40,7 +39,7 @@
   }
 
   .dropdown .list-hidden {
-    visibility: hidden;
+    visibility: collapse;
   }
   .dropdown .list-shown {
     visibility: visible;

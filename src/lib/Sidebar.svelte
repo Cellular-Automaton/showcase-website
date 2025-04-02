@@ -1,6 +1,6 @@
 <script lang="ts">
   import { page } from '$app/state';
-  import { languages, isOfLangType } from '$lib/constants/languages/home';
+  import { languages, isOfLangType } from '$lib/constants/languages/documentation/sidebar';
   import type { Languages } from '$lib/constants/languages/home';
   import { error } from '@sveltejs/kit';
   import '../global.css';
@@ -14,11 +14,18 @@
 
 <div class="sidebar">
   <li class="elements">
-    <UlRedirect ref={(('/' + page.params?.lang) as Languages) + '/documentation/overview'}>Overview</UlRedirect>
-    <UlRedirect ref={(('/' + page.params?.lang) as Languages) + '/documentation/installation'}>Installation</UlRedirect>
-    <UlRedirect ref={(('/' + page.params?.lang) as Languages) + '/documentation/getting-started'}>Getting Started</UlRedirect>
-    <TextDropdown title="API">
-      <UlRedirect ref={(('/' + page.params?.lang) as Languages) + '/documentation/api/'}>Overview</UlRedirect>
+    <UlRedirect ref={(('/' + page.params?.lang) as Languages) + '/documentation/overview'}
+      >{languages[page.params?.lang as Languages].overview}</UlRedirect
+    >
+    <TextDropdown title={languages[page.params?.lang as Languages].get_started}>
+      <UlRedirect ref={(('/' + page.params?.lang) as Languages) + '/documentation/installation'}
+        >{languages[page.params?.lang as Languages].installation}</UlRedirect
+      >
+    </TextDropdown>
+    <TextDropdown title={languages[page.params?.lang as Languages].api}>
+      <UlRedirect ref={(('/' + page.params?.lang) as Languages) + '/documentation/api/'}
+        >{languages[page.params?.lang as Languages].overview}</UlRedirect
+      >
     </TextDropdown>
   </li>
 </div>
@@ -38,7 +45,7 @@
     display: flex;
     flex-direction: column;
     color: var(--primary-400);
-    margin: 4vh 2vw;
+    margin: 4vh 1vw;
     gap: 1vh;
   }
 </style>

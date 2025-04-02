@@ -3,10 +3,10 @@
 
   let props = $props();
   let url = page.url.pathname;
-  console.log(url);
+  let compare = props.ref;
 </script>
 
-<div class={url === props.ref ? 'redirect-active' : 'redirect-inactive'}>
+<div class={url === compare ? 'redirect-active' : 'redirect-inactive'}>
   <a href={props.ref}>{@render props.children()}</a>
 </div>
 
