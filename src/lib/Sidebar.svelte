@@ -33,9 +33,12 @@
 <style>
   .sidebar {
     background-color: var(--primary-900);
+    opacity: 0.97;
     min-width: 10vw;
     max-width: 15vw;
     min-height: 100vh;
+    top: 10vh;
+    position: fixed;
     z-index: 2;
     box-shadow:
       var(--primary-900) 0px 30px 60px -12px inset,

@@ -1,76 +1,86 @@
 <script lang="ts">
-  import { page } from '$app/stores';
+  import { page } from '$app/state';
+  import { languages, isOfLangType } from '$lib/constants/languages/header';
+  import type { Languages } from '$lib/constants/languages/home';
+  import { error } from '@sveltejs/kit';
   import logo from '$lib/images/Logo.svg';
-  import { isOfLangType, languages } from '$lib/constants/languages/header';
-  import type { Languages } from '$lib/constants/languages/header';
   import frflag from '$lib/images/frflag.svg';
   import ukflag from '$lib/images/ukflag.svg';
-  import { error } from '@sveltejs/kit';
-  import { Navbar, NavBrand, NavLi, Button, Dropdown, DropdownItem, DarkMode, NavUl } from 'flowbite-svelte';
-  import { ChevronDownOutline } from 'flowbite-svelte-icons';
+  import '../global.css';
+  import TextDropdown from './components/TextDropdown.svelte';
+  import UlRedirect from './components/UlRedirect.svelte';
+  import { goto } from '$app/navigation';
 
-  $: lang = $page.params?.lang ?? 'en';
-  $: activeUrl = $page.url.pathname;
-  $: language = lang as Languages;
-  $: params = $page.url.pathname.slice(3);
-  $: if (!isOfLangType(language)) {
+  if (!isOfLangType(page.params?.lang as Languages)) {
     throw error(400);
   }
 </script>
 
-<Navbar color="dark" class="start-0 top-0 z-20 w-full border-b p-0" let:hidden>
-  <NavBrand href={'/' + lang}>
-    <img src={logo} alt="logo" class="logo" />
-    <span class="title">CAMI</span>
-  </NavBrand>
-  <div class="flex space-x-3 md:order-3">
-    <div class="flag flex justify-center">
-      {#if lang === 'en'}
-        <a href={'/fr' + params}><img src={frflag} alt="french flag" class="flag-icon" /></a>
-      {/if}
-      {#if lang === 'fr'}
-        <a href={'/en' + params}><img src={ukflag} alt="english flag" class="flag-icon" /></a>
-      {/if}
-    </div>
-    <DarkMode hidden />
-    <Button href={'/' + lang + '/download'} size="sm" class="text-lg">{languages[language].download}</Button>
+<div class="header">
+  <button
+    class="logo"
+    onclick={() => {
+      console.log('oui');
+      goto('/' + (page.params?.lang ?? 'en'));
+    }}
+  >
+    <img src={logo} alt="Cami logo" id="cami-logo" />
+    <span id="text">CAMI</span>
+  </button>
+  <div class="links-ul">
+    <UlRedirect url={'/' + (page.params?.lang ?? 'en')}>{languages[(page.params?.lang ?? 'en') as Languages].home}</UlRedirect>
+    <UlRedirect url={'/' + (page.params?.lang ?? 'en')}>{languages[(page.params?.lang ?? 'en') as Languages].team}</UlRedirect>
+    <!-- NOTE: find a way to expand this outside of header ? -->
+    <TextDropdown title="Documentation">
+      <UlRedirect url={'/' + (page.params?.lang ?? 'en') + '/documentation/overview'}>Overview</UlRedirect></TextDropdown
+    >
   </div>
-  <NavUl {hidden} class="!flex" {activeUrl}>
-    <NavLi class="text-lg" href={'/' + lang}>{languages[language].home}</NavLi>
-    <NavLi class="text-lg" href={'/' + lang + '/team'}>{languages[language].team}</NavLi>
-    <NavLi class="cursor-pointer text-lg">
-      {languages[language].dropdown}<ChevronDownOutline class="ms-2 inline h-6 w-6 text-primary-800 dark:text-white" />
-      <Dropdown color="dark">
-        <DropdownItem href={'/' + lang + '/documentation/overview'}>{languages[language].item1}</DropdownItem>
-        <DropdownItem href={'/' + lang + '/documentation/get-started'}>{languages[language].item2}</DropdownItem>
-        <DropdownItem href={'/' + lang + '/documentation/plugins'}>{languages[language].item3}</DropdownItem>
-      </Dropdown>
-    </NavLi>
-  </NavUl>
-</Navbar>
+  <div></div>
+</div>
 
 <style>
-  .title {
-    padding-left: 1vw;
-    align-self: center;
-    font-weight: bold;
-    font-size: 3vh;
-    color: #6956e5;
+  .header {
+    position: -webkit-sticky; /* safari */
+    position: sticky;
+    top: 0;
+    background-color: var(--primary-900);
+    min-height: 10vh;
+    z-index: 20;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: grid;
+    grid-template-columns: 3fr 3fr 2fr;
+    margin-bottom: 3vh;
+    align-items: center;
   }
 
   .logo {
-    width: 4vw;
-    min-width: 3vw;
-    min-height: 2vh;
-    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    margin: 1vh 0 0 4vw;
+    gap: 1vw;
   }
 
-  .flag {
-    max-width: 3vw;
-    padding-right: 1vw;
-    margin-top: 0.5vh;
+  .logo #cami-logo {
+    width: 4vw;
+    min-width: 60px;
+    margin-top: -0.5vh;
   }
-  .flag-icon {
-    height: 3vh;
+
+  #text {
+    color: var(--primary-200);
+    font-size: x-large;
+    font-weight: normal;
+  }
+
+  #text:hover {
+    color: var(--primary-100);
+  }
+
+  .links-ul {
+    display: flex;
+    flex-direction: row;
+    gap: 1vw;
+    margin-left: 3vw;
   }
 </style>
