@@ -3,6 +3,7 @@
   import Footer from '$lib/Footer.svelte';
   import Header from '$lib/Header.svelte';
   import logo from '$lib/images/Logo.svg';
+  import { page } from '$app/state';
   import '../app.css';
 </script>
 
@@ -12,7 +13,7 @@
 
 <div class="app">
   <Background />
-  <Header />
+  <Header {page} />
   <main>
     <slot />
   </main>

@@ -7,35 +7,68 @@
   import frflag from '$lib/images/frflag.svg';
   import ukflag from '$lib/images/ukflag.svg';
   import '../global.css';
-  import TextDropdown from './components/TextDropdown.svelte';
   import UlRedirect from './components/UlRedirect.svelte';
-  import { goto } from '$app/navigation';
+  import { afterNavigate, goto } from '$app/navigation';
+  import { Button } from 'flowbite-svelte';
+  import { onMount } from 'svelte';
+  import StickyDropdown from './components/StickyDropdown.svelte';
+  import UlDropdown from './components/UlDropdown.svelte';
 
-  if (!isOfLangType(page.params?.lang as Languages)) {
-    throw error(400);
-  }
+  let props = $props();
+  let params: string = $state(props.page.url.pathname.slice(3));
+  let language: string = $state(page.params?.lang ?? 'en');
+  let lang: Languages;
+
+  const updateParams = () => {
+    params = page.url.pathname.slice(3);
+    language = page.params?.lang ?? 'en';
+    lang = language as Languages;
+
+    if (!isOfLangType(lang)) {
+      throw error(400);
+    }
+  };
+
+  onMount(() => {
+    updateParams();
+    afterNavigate(() => {
+      updateParams();
+    });
+  });
 </script>
 
 <div class="header">
-  <button
-    class="logo"
-    onclick={() => {
-      console.log('oui');
-      goto('/' + (page.params?.lang ?? 'en'));
-    }}
-  >
-    <img src={logo} alt="Cami logo" id="cami-logo" />
-    <span id="text">CAMI</span>
-  </button>
+  <div class="logo">
+    <button
+      onclick={() => {
+        goto('/' + (page.params?.lang ?? 'en'));
+      }}
+    >
+      <img src={logo} alt="Cami logo" id="cami-logo" />
+      <span id="text">CAMI</span>
+    </button>
+  </div>
   <div class="links-ul">
-    <UlRedirect url={'/' + (page.params?.lang ?? 'en')}>{languages[(page.params?.lang ?? 'en') as Languages].home}</UlRedirect>
-    <UlRedirect url={'/' + (page.params?.lang ?? 'en')}>{languages[(page.params?.lang ?? 'en') as Languages].team}</UlRedirect>
+    <UlRedirect size="larger" header ref={'/' + (page.params?.lang ?? 'en')}>{languages[(page.params?.lang ?? 'en') as Languages].home}</UlRedirect>
+    <UlRedirect size="larger" header ref={'/' + language + '/team'}>{languages[(page.params?.lang ?? 'en') as Languages].team}</UlRedirect>
     <!-- NOTE: find a way to expand this outside of header ? -->
-    <TextDropdown title="Documentation">
-      <UlRedirect url={'/' + (page.params?.lang ?? 'en') + '/documentation/overview'}>Overview</UlRedirect></TextDropdown
+    <StickyDropdown title="Documentation">
+      <UlDropdown header ref={'/' + language + '/documentation/overview'}>Overview</UlDropdown>
+      <UlDropdown header ref={'/' + language + '/documentation/get-started'}>Get started</UlDropdown>
+      <UlDropdown header ref={'/' + language + '/documentation/api'}>Api documentation</UlDropdown>
+    </StickyDropdown>
+  </div>
+  <div class="utils">
+    {#if language === 'en'}
+      <a href={'/fr' + params}><img src={frflag} alt="french flag" class="flag-icon" /></a>
+    {/if}
+    {#if language === 'fr'}
+      <a href={'/en' + params}><img src={ukflag} alt="english flag" class="flag-icon" /></a>
+    {/if}
+    <Button href={'/' + (page.params?.lang ?? 'en') + '/download'} size="sm" class="text-lg"
+      >{languages[(page.params?.lang ?? 'en') as Languages].download}</Button
     >
   </div>
-  <div></div>
 </div>
 
 <style>
@@ -58,6 +91,11 @@
     flex-direction: row;
     justify-content: start;
     margin: 1vh 0 0 4vw;
+  }
+
+  .logo button {
+    display: flex;
+    flex-direction: row;
     gap: 1vw;
   }
 
@@ -65,6 +103,25 @@
     width: 4vw;
     min-width: 60px;
     margin-top: -0.5vh;
+  }
+
+  .links-ul {
+    display: flex;
+    flex-direction: row;
+    gap: 1vw;
+    margin-left: 3vw;
+  }
+
+  .utils {
+    display: flex;
+    flex-direction: row;
+    gap: 1vw;
+    align-items: center;
+    margin-left: 3vw;
+  }
+
+  .flag-icon {
+    height: 3vh;
   }
 
   #text {
@@ -75,12 +132,5 @@
 
   #text:hover {
     color: var(--primary-100);
-  }
-
-  .links-ul {
-    display: flex;
-    flex-direction: row;
-    gap: 1vw;
-    margin-left: 3vw;
   }
 </style>

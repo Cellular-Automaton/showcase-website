@@ -1,6 +1,7 @@
 <script lang="ts">
   import { AngleDownOutline, AngleRightOutline } from 'flowbite-svelte-icons';
   import UlRedirect from './UlRedirect.svelte';
+  import { onNavigate } from '$app/navigation';
 
   let props = $props();
   let state = $state('close');
@@ -8,6 +9,10 @@
   const changeDisplay = () => {
     state = state === 'close' ? 'open' : 'close';
   };
+
+  onNavigate(() => {
+    state = 'close';
+  });
 </script>
 
 <div class="dropdown">
@@ -26,25 +31,38 @@
 
 <style>
   .dropdown {
-    display: flex;
+    display: inline-block;
     flex-direction: column;
   }
   .dropdown .header {
     display: flex;
     flex-direction: row;
-    align-items: center;
-    gap: 0.5vw;
     justify-content: space-between;
+    align-items: center;
     color: var(--primary-300);
-    font: large bold;
+    gap: 0.5vw;
+    font: larger;
     width: inherit;
+  }
+  .dropdown .header:hover {
+    color: var(--primary-10);
   }
 
   .dropdown .list-hidden {
+    display: none;
     visibility: collapse;
   }
   .dropdown .list-shown {
     visibility: visible;
-    margin-left: 1vw;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--primary-800);
+    min-width: 200px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    z-index: 100;
+    padding: 0.5vh 0vw;
+    border-radius: 5px;
+    gap: 0.5vh;
+    position: absolute;
   }
 </style>
