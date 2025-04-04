@@ -115,9 +115,10 @@
   .utils {
     display: flex;
     flex-direction: row;
-    gap: 1vw;
+    gap: 2vw;
     align-items: center;
-    margin-left: 3vw;
+    margin-right: 4vw;
+    justify-content: end;
   }
 
   .flag-icon {
