@@ -3,6 +3,7 @@
   import Footer from '$lib/Footer.svelte';
   import Header from '$lib/Header.svelte';
   import logo from '$lib/images/Logo.svg';
+  import { page } from '$app/state';
   import '../app.css';
 </script>
 
@@ -12,8 +13,8 @@
 
 <div class="app">
   <Background />
+  <Header {page} />
   <main>
-    <Header />
     <slot />
   </main>
   <Footer />
@@ -23,12 +24,13 @@
   .app {
     min-height: 100vh;
     background-color: theme('colors.primary.0');
-    overflow-x: hidden;
-    max-width: 100%;
+    /* overflow-x: hidden; */
+    max-width: 100vw;
   }
   main {
     z-index: 10;
     display: flex;
     flex-direction: column;
+    overflow-x: hidden;
   }
 </style>
