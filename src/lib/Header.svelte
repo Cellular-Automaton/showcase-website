@@ -54,7 +54,7 @@
     <!-- NOTE: find a way to expand this outside of header ? -->
     <StickyDropdown title="Documentation">
       <UlDropdown header ref={'/' + language + '/documentation/overview'}>Overview</UlDropdown>
-      <UlDropdown header ref={'/' + language + '/documentation/get-started'}>Get started</UlDropdown>
+      <!-- <UlDropdown header ref={'/' + language + '/documentation/get-started'}>Get started</UlDropdown> -->
       <UlDropdown header ref={'/' + language + '/documentation/api'}>Api documentation</UlDropdown>
     </StickyDropdown>
   </div>

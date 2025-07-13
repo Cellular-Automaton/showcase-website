@@ -43,6 +43,7 @@
   },
   "type": "module",
   "dependencies": {
+    "prismjs": "^1.30.0",
     "svelte-spa-router": "^4.0.1"
   }
 }
