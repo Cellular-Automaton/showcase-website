@@ -1,9 +1,11 @@
 export const languages = {
   en: {
-    title: 'Overview'
+    title: 'Overview',
+    api: "Api documentation"
   },
   fr: {
-    title: 'Sommaire'
+    title: 'Sommaire',
+    api: "Documentation de l'API"
   }
 };
 

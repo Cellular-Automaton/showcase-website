@@ -17,15 +17,13 @@
     <UlRedirect ref={(('/' + page.params?.lang) as Languages) + '/documentation/overview'}
       >{languages[page.params?.lang as Languages].overview}</UlRedirect
     >
-    <TextDropdown title={languages[page.params?.lang as Languages].get_started}>
-      <UlRedirect ref={(('/' + page.params?.lang) as Languages) + '/documentation/installation'}
-        >{languages[page.params?.lang as Languages].installation}</UlRedirect
-      >
-    </TextDropdown>
+    <!-- <TextDropdown title={languages[page.params?.lang as Languages].get_started}> -->
+    <!--   <UlRedirect ref={(('/' + page.params?.lang) as Languages) + '/documentation/installation'} -->
+    <!--     >{languages[page.params?.lang as Languages].installation}</UlRedirect -->
+    <!--   > -->
+    <!-- </TextDropdown> -->
     <TextDropdown title={languages[page.params?.lang as Languages].api}>
-      <UlRedirect ref={(('/' + page.params?.lang) as Languages) + '/documentation/api/'}
-        >{languages[page.params?.lang as Languages].overview}</UlRedirect
-      >
+      <UlRedirect ref={(('/' + page.params?.lang) as Languages) + '/documentation/api/'}>{languages[page.params?.lang as Languages].api}</UlRedirect>
     </TextDropdown>
   </li>
 </div>
