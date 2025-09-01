@@ -4,7 +4,7 @@
   import { error } from '@sveltejs/kit';
   import type { PageProps } from './$types';
   import { page } from '$app/state';
-  import type { Languages } from '$lib/constants/languages/home';
+  import type { Languages } from '$lib/constants/languages/download';
   import { DownloadOutline, GithubSolid } from 'flowbite-svelte-icons';
 
   let { data }: PageProps = $props();
@@ -39,11 +39,11 @@
                 <TableBodyCell>{release.released}</TableBodyCell>
                 {#each release.windows as asset}
                   <TableBodyCell>
-                    <a href={asset.browser_download_url}><Button outline><DownloadOutline class='me-2' /> {asset.name}</Button></a>
+                    <a href={asset.browser_download_url}><Button outline><DownloadOutline class="me-2" /> {asset.name}</Button></a>
                   </TableBodyCell>
                 {/each}
                 <TableBodyCell>
-                  <a href={release.url}><Button pill size='sm'><GithubSolid class='me-2'/> {release.name}</Button></a>
+                  <a href={release.url}><Button pill size="sm"><GithubSolid class="me-2" /> {release.name}</Button></a>
                 </TableBodyCell>
               </TableBodyRow>
             {/each}
@@ -68,12 +68,12 @@
                 <TableBodyCell>
                   <div class="download">
                     {#each release.linux as asset}
-                    <a href={asset.browser_download_url}><Button outline><DownloadOutline class='me-2' /> {asset.name}</Button></a>
+                      <a href={asset.browser_download_url}><Button outline><DownloadOutline class="me-2" /> {asset.name}</Button></a>
                     {/each}
                   </div>
                 </TableBodyCell>
                 <TableBodyCell>
-                  <a href={release.url}><Button pill size='sm'><GithubSolid class='me-2'/> {release.name}</Button></a>
+                  <a href={release.url}><Button pill size="sm"><GithubSolid class="me-2" /> {release.name}</Button></a>
                 </TableBodyCell>
               </TableBodyRow>
             {/each}
