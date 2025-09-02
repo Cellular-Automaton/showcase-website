@@ -38,13 +38,11 @@ h1 {
 }
 
 h2 {
-  display: block;
-  font-size: 1.5em;
+  color: theme('colors.primary.300');
+  font-size: 35px;
   margin-top: 0.83em;
   margin-bottom: 0.83em;
-  margin-left: 0;
-  margin-right: 0;
-  font-weight: bold;
+  font-weight: 500;
 }
 
 p {
