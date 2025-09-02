@@ -59,7 +59,6 @@ export async function getReleases(repoName: string) {
     })
     .catch((err) => {
       console.log(err.message)
-      redirect(308, '/error');
     });
   releases = releases.filter((item) => item.linux.length > 0 || item.windows.length > 0)
 

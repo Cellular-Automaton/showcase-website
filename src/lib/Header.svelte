@@ -51,7 +51,6 @@
   <div class="links-ul">
     <UlRedirect size="larger" header ref={'/' + (page.params?.lang ?? 'en')}>{languages[(page.params?.lang ?? 'en') as Languages].home}</UlRedirect>
     <UlRedirect size="larger" header ref={'/' + language + '/team'}>{languages[(page.params?.lang ?? 'en') as Languages].team}</UlRedirect>
-    <!-- NOTE: find a way to expand this outside of header ? -->
     <StickyDropdown title="Documentation">
       <UlDropdown header ref={'/' + language + '/documentation/overview'}>Overview</UlDropdown>
       <!-- <UlDropdown header ref={'/' + language + '/documentation/get-started'}>Get started</UlDropdown> -->
@@ -76,7 +75,7 @@
     position: -webkit-sticky; /* safari */
     position: sticky;
     top: 0;
-    background-color: var(--primary-900);
+    background-color: var(--primary-1000);
     min-height: 10vh;
     z-index: 20;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
