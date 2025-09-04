@@ -12,17 +12,19 @@ jobs:
 
       - name: generate .env file
         run: |
-          echo "GITHUB_KEY='${{ secrets.GITHUB_KEY }}'" > .env
+          echo "GITHUB_KEY='${{ secrets.GIT_KEY }}'" > .env
 
       - name: upload to vps
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.VPS_HOST }}
           username: ${{ secrets.VPS_USERNAME }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
           password: ${{ secrets.VPS_PASSWORD }}
           script: |
             cd ${{ secrets.APP_DIR }}
             git pull
+            npm install
             npm run build
-            cp -r ./build ${{ secrets.DEPLOYED_DIR }}
+            sudo rm -r ${{ secrets.DEPLOYED_DIR }}/build
+            sudo cp -r ./build ${{ secrets.DEPLOYED_DIR }}
+            sudo systemctl restart nginx.service

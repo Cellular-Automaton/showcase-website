@@ -16,7 +16,7 @@ jobs:
 
       - name: generate .env file
         run: |
-          echo "GITHUB_KEY='${{ secrets.GITHUB_KEY }}'" > .env
+          echo "GITHUB_KEY='secret_key'" > .env
 
       - name: Install dependencies
         run: npm install
