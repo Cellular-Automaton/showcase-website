@@ -1,0 +1,30 @@
+name: Deploy to vps
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy-main:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: generate .env file
+        run: |
+          echo "GITHUB_KEY='${{ secrets.GIT_KEY }}'" > .env
+
+      - name: upload to vps
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USERNAME }}
+          password: ${{ secrets.VPS_PASSWORD }}
+          script: |
+            cd ${{ secrets.APP_DIR }}
+            git pull
+            npm install
+            npm run build
+            sudo rm -r ${{ secrets.DEPLOYED_DIR }}/build
+            sudo cp -r ./build ${{ secrets.DEPLOYED_DIR }}
+            sudo systemctl restart nginx.service
