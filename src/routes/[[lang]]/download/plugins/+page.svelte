@@ -32,6 +32,9 @@
   }
 
   h1 {
+    color: theme('colors.primary.10');
+    font-family: Inter;
+    font-size: 45px;
     text-align: center;
     margin-bottom: 3vh;
     margin-top: 3vh;

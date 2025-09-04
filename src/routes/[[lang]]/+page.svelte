@@ -36,6 +36,7 @@
 
 <style>
   @import '../../global.css';
+
   h1 {
     color: theme('colors.primary.10');
     font-family: Inter;

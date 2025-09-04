@@ -1,7 +1,7 @@
 <script lang="ts">
   import { page } from '$app/state';
   import { languages, isOfLangType } from '$lib/constants/languages/header';
-  import type { Languages } from '$lib/constants/languages/home';
+  import type { Languages } from '$lib/constants/languages/header';
   import { error } from '@sveltejs/kit';
   import logo from '$lib/images/Logo.svg';
   import frflag from '$lib/images/frflag.svg';
@@ -49,12 +49,12 @@
     </button>
   </div>
   <div class="links-ul">
-    <UlRedirect size="larger" header ref={'/' + (page.params?.lang ?? 'en')}>{languages[(page.params?.lang ?? 'en') as Languages].home}</UlRedirect>
-    <UlRedirect size="larger" header ref={'/' + language + '/team'}>{languages[(page.params?.lang ?? 'en') as Languages].team}</UlRedirect>
+    <UlRedirect size="larger" header ref={'/' + (page.params?.lang ?? 'en')}>{languages[(page.params?.lang ?? 'en') as Languages]?.home}</UlRedirect>
+    <UlRedirect size="larger" header ref={'/' + language + '/team'}>{languages[(page.params?.lang ?? 'en') as Languages]?.team}</UlRedirect>
     <StickyDropdown title="Documentation">
-      <UlDropdown header ref={'/' + language + '/documentation/overview'}>Overview</UlDropdown>
+      <UlDropdown header ref={'/' + language + '/documentation/overview'}>{languages[(page.params?.lang ?? 'en') as Languages]?.item1}</UlDropdown>
       <!-- <UlDropdown header ref={'/' + language + '/documentation/get-started'}>Get started</UlDropdown> -->
-      <UlDropdown header ref={'/' + language + '/documentation/api'}>Api documentation</UlDropdown>
+      <UlDropdown header ref={'/' + language + '/documentation/api'}>{languages[(page.params?.lang ?? 'en') as Languages]?.item2}</UlDropdown>
     </StickyDropdown>
   </div>
   <div class="utils">
@@ -65,7 +65,7 @@
       <a href={'/en' + params}><img src={ukflag} alt="english flag" class="flag-icon" /></a>
     {/if}
     <Button href={'/' + (page.params?.lang ?? 'en') + '/download'} size="sm" class="text-lg"
-      >{languages[(page.params?.lang ?? 'en') as Languages].download}</Button
+      >{languages[(page.params?.lang ?? 'en') as Languages]?.download}</Button
     >
   </div>
 </div>
@@ -132,5 +132,10 @@
 
   #text:hover {
     color: var(--primary-100);
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
   }
 </style>

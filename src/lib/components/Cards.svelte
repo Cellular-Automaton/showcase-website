@@ -59,4 +59,13 @@
     justify-items: start;
     align-items: center;
   }
+
+  h1 {
+    color: theme('colors.primary.10');
+    font-family: Inter;
+    font-size: 45px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
 </style>

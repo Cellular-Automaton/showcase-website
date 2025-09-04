@@ -5,7 +5,7 @@
   import logo from '$lib/images/Logo.svg';
   import { page } from '$app/state';
   import '../app.css';
-  import './[[lang]]/styles.css';
+  import '../styles.css';
 </script>
 
 <svelte:head>
@@ -30,6 +30,7 @@
     /* display: flex; */
     /* flex-direction: column; */
   }
+
   main {
     z-index: 10;
     min-height: 75vh;
