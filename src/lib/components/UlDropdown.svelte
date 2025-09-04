@@ -36,6 +36,11 @@
     font-size: larger;
   }
 
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
   div:hover {
     color: var(--primary-100);
   }

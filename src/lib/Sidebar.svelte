@@ -30,7 +30,7 @@
 
 <style>
   .sidebar {
-    background-color: var(--primary-900);
+    background-color: var(--primary-1000);
     opacity: 0.97;
     min-width: 10vw;
     max-width: 15vw;

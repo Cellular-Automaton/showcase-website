@@ -1,10 +1,14 @@
 export const languages = {
   en: {
-    title: 'Download'
+    title: 'Download',
+    alert_title: 'No content found',
+    alert_button: 'Search more plugins'
   },
   fr: {
-    title: 'Téléchargement'
-  }
+    title: 'Téléchargement',
+    alert_title: 'Pas de résultats pour ce plugin',
+    alert_button: 'Chercher d\'autres plugins'
+  },
 };
 
 export type Languages = keyof typeof languages;

@@ -23,7 +23,8 @@ export default {
           600: '#5C43C1', // Deeper violet
           700: '#3A1D6A', // Darker violet
           800: '#2E1550', // Very deep violet
-          900: '#2c2637' // Darkest violet
+          900: '#2c2637', // Darkest violet
+          1000: '#16182b'
         }
       }
     }

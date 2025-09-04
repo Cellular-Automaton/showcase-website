@@ -11,6 +11,7 @@
   --primary-700: theme('colors.primary.700');
   --primary-800: theme('colors.primary.800');
   --primary-900: theme('colors.primary.900');
+  --primary-1000: theme('colors.primary.1000');
 }
 
 .box {
@@ -19,31 +20,37 @@
   margin-left: auto;
   margin-right: auto;
 }
+
 @media (min-width: 640px) {
   .box {
     max-width: 640px;
   }
 }
+
 @media (min-width: 768px) {
   .box {
     max-width: 768px;
   }
 }
+
 @media (min-width: 1024px) {
   .box {
     max-width: 1024px;
   }
 }
+
 @media (min-width: 1280px) {
   .box {
     max-width: 1280px;
   }
 }
+
 @media (min-width: 1536px) {
   .box {
     max-width: 1536px;
   }
 }
+
 @media (min-width: 1800px) {
   .box {
     max-width: 1800px;

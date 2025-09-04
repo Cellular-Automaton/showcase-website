@@ -1,6 +1,6 @@
 <script lang="ts">
   import { page } from '$app/state';
-  import { languages, isOfLangType } from '$lib/constants/languages/home';
+  import { isOfLangType } from '$lib/constants/languages/home';
   import type { Languages } from '$lib/constants/languages/home';
   import Sidebar from '$lib/Sidebar.svelte';
   import { error } from '@sveltejs/kit';
