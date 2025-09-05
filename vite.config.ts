@@ -4,12 +4,11 @@ import { sveltekit } from '@sveltejs/kit/vite';
 export default defineConfig({
   plugins: [sveltekit()],
   test: {
-    browser: {
-      enabled: true,
-      provider: 'playwright',
-      instances: [
-        { browser: 'chromium' },
-      ],
-    },
-  }
+    environment: 'jsdom'
+  },
+  resolve: process.env.VITEST
+    ? {
+      conditions: ['browser']
+    }
+    : undefined
 });
