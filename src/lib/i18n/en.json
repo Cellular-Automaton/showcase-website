@@ -1,0 +1,14 @@
+{
+  "documentation": {
+    "name": "Documentation",
+    "desc": "Documentation pages"
+  },
+  "overview": {
+    "name": "Overview",
+    "desc": "The entry page for documentations"
+  },
+  "plugins": {
+    "name": "Plugins",
+    "desc": "How to develop plugins"
+  }
+}
