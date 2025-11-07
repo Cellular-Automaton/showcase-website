@@ -1,7 +1,4 @@
-import { _ } from "svelte-i18n"
-import { get } from "svelte/store"
-
-const $_ = get(_)
+import { m } from "$lib/paraglide/messages.js"
 
 export type PageEntry = {
   path: string,
@@ -18,18 +15,18 @@ export type PageTitleEntry = {
 export const fetchDocumentationPages = () => {
   const pages: PageTitleEntry[] = [
     {
-      name: $_('documentation.name'),
-      description: $_('documentation.desc'),
+      name: m["documentation.name"](),
+      description: m["documentation.desc"](),
       items: [
         {
           path: '/documentation/overview',
-          name: $_('overview.name'),
-          description: $_('overview.desc'),
+          name: m["overview.name"](),
+          description: m["overview.desc"](),
         },
         {
           path: '/documentation/plugin',
-          name: $_('plugins.name'),
-          description: $_('plugins.desc'),
+          name: m["plugins.name"](),
+          description: m["plugins.desc"](),
         }
       ]
     }
