@@ -19,12 +19,12 @@ export const fetchDocumentationPages = () => {
       description: m["documentation.desc"](),
       items: [
         {
-          path: '/documentation/overview',
+          path: '/docs/overview',
           name: m["overview.name"](),
           description: m["overview.desc"](),
         },
         {
-          path: '/documentation/plugin',
+          path: '/docs/plugin',
           name: m["plugins.name"](),
           description: m["plugins.desc"](),
         }

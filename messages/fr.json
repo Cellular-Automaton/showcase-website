@@ -12,5 +12,6 @@
   "plugins": {
     "name": "Plugins",
     "desc": "Comment développer son plugin"
-  }
+  },
+  "home_desc1": "Une plateforme collaborative et open source pour explorer les automates cellulaires"
 }

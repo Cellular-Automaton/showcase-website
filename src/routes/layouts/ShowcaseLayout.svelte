@@ -1,8 +1,7 @@
 <script lang="ts">
   import { page } from '$app/state';
   import { Navbar, NavBrand, NavHamburger, NavUl, NavLi, Button, DarkMode, ButtonGroup } from 'flowbite-svelte';
-  import { getLocale, isLocale, setLocale } from '$lib/paraglide/runtime.js';
-  import { m } from '$lib/paraglide/messages.js';
+  import { getLocale, setLocale } from '$lib/paraglide/runtime.js';
 
   const languages = [
     {
@@ -24,7 +23,7 @@
   <Navbar>
     <NavBrand href="/">
       <img src={logo} alt="Cami logo" class="me-3 h-6 sm:h-9" />
-      <span>CAMI</span>
+      <span class="color-primary-900 dark:color-primary-50">CAMI</span>
     </NavBrand>
     <NavHamburger class="order-3 m-0 ml-3 lg:hidden" />
     <NavUl

@@ -12,5 +12,6 @@
   "plugins": {
     "name": "Plugins",
     "desc": "How to develop plugins"
-  }
+  },
+  "home_desc1": "A collaborative, open source plateform to explore cellular automata"
 }
