@@ -1,7 +1,7 @@
 <script lang="ts">
   import { page } from '$app/state';
-  import { Navbar, NavBrand, NavHamburger, NavUl, NavLi, Button, DarkMode } from 'flowbite-svelte';
-  import { setLocale } from '$lib/paraglide/runtime.js';
+  import { Navbar, NavBrand, NavHamburger, NavUl, NavLi, Button, DarkMode, ButtonGroup } from 'flowbite-svelte';
+  import { getLocale, isLocale, setLocale } from '$lib/paraglide/runtime.js';
   import { m } from '$lib/paraglide/messages.js';
 
   const languages = [
@@ -36,15 +36,22 @@
     >
       <NavLi class="lg:mb-0 lg:px-2" href="/docs/overview">Docs</NavLi>
       <NavLi class="lg:mb-0 lg:px-2" href="/plugins">Plugins</NavLi>
+      <NavLi class="lg:mb-0 lg:px-2" href="/blog">Blog</NavLi>
     </NavUl>
 
     <div class="order-1 ml-auto flex items-center lg:order-2">
       <DarkMode />
-      {#each languages as language}
-        <Button onclick={async () => await setLocale(language.locale_name)} pill outline>
-          <img alt="Language flag" src={language.flag_path} />
-        </Button>
-      {/each}
+      <ButtonGroup>
+        {#each languages as language}
+          <Button
+            onclick={async () => await setLocale(language.locale_name)}
+            pill
+            color={getLocale() === language.locale_name ? 'purple' : 'alternative'}
+          >
+            <img alt="Language flag" src={language.flag_path} />
+          </Button>
+        {/each}
+      </ButtonGroup>
     </div>
   </Navbar>
 </header>
