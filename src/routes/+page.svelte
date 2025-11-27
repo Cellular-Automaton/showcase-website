@@ -1,5 +1,6 @@
 <script lang="ts">
-  import { Heading, P, Span, Hr } from 'flowbite-svelte';
+  import { Heading, P, Span, Hr, Button } from 'flowbite-svelte';
+  import { ArrowRightOutline } from 'flowbite-svelte-icons';
   import { m } from '$lib/paraglide/messages.js';
 </script>
 
@@ -12,4 +13,17 @@
     <img src="/images/lenia-image.png" alt="lenia gif" />
   </div>
   <Hr />
+  <div class="flex flex-col justify-center gap-5">
+    <Heading tag="h2">{m.home_title1()}</Heading>
+    <div class="mt-4 flex flex-col items-center">
+      <img class="w-lg" src="https://life.calgui.io/images/spaceships/glider.gif" alt="conway's spaceship" />
+      <span class="text-center text-gray-400">{m.home_img_desc_1()}</span>
+    </div>
+    <p class="text-primary-900 dark:text-primary-100">{m.home_desc2_1()}</p>
+    <p class="text-primary-900 dark:text-primary-100">{m.home_desc2_2()}</p>
+  </div>
+  <Hr />
+  <div class="flex flex-row justify-center">
+    <Button href="/download" size="xl">{m.home_down()}<ArrowRightOutline class="ms-2 h-5 w-5" /></Button>
+  </div>
 </div>

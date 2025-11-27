@@ -1,5 +1,7 @@
 {
   "$schema": "https://inlang.com/schema/inlang-message-format",
+  "header_down": "Télécharger",
+  "header_about": "À propos",
   "hello_world": "Hello, {name} from fr!",
   "documentation": {
     "name": "Documentation",
@@ -13,5 +15,10 @@
     "name": "Plugins",
     "desc": "Comment développer son plugin"
   },
-  "home_desc1": "Une plateforme collaborative et open source pour explorer les automates cellulaires"
+  "home_desc1": "Une plateforme collaborative et open source pour explorer les automates cellulaires",
+  "home_title1": "Qu'est-ce qu'un automate cellulaire ?",
+  "home_desc2_1": "C'est un type de turn-based jeu sans joueur ou les évolutions entre deux étapes sont définies par des opérations mathématiques",
+  "home_desc2_2": "Le plus connu est le jeu de la vie de Conway, créé par le mathématicien John Conway en 1970.",
+  "home_img_desc_1": "Jeu de la vie: un «planeur»",
+  "home_down": "Télécharger CAMI"
 }

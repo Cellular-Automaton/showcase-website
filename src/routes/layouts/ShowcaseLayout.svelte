@@ -1,7 +1,21 @@
 <script lang="ts">
   import { page } from '$app/state';
-  import { Navbar, NavBrand, NavHamburger, NavUl, NavLi, Button, DarkMode, ButtonGroup } from 'flowbite-svelte';
+  import {
+    Navbar,
+    NavBrand,
+    NavHamburger,
+    NavUl,
+    NavLi,
+    Button,
+    DarkMode,
+    ButtonGroup,
+    Footer,
+    FooterCopyright,
+    FooterLinkGroup,
+    FooterLink
+  } from 'flowbite-svelte';
   import { getLocale, setLocale } from '$lib/paraglide/runtime.js';
+  import { m } from '$lib/paraglide/messages.js';
 
   const languages = [
     {
@@ -19,11 +33,11 @@
   let activeUrl = $state(page.url.pathname);
 </script>
 
-<header class="sticky top-0 z-51 w-full flex-none border-b border-gray-200 bg-white dark:border-gray-600 dark:bg-gray-900">
+<header class="sticky top-0 z-51 w-full flex-none border-b border-gray-200 bg-gray-50 shadow-lg dark:border-gray-600 dark:bg-gray-900">
   <Navbar>
     <NavBrand href="/">
       <img src={logo} alt="Cami logo" class="me-3 h-6 sm:h-9" />
-      <span class="color-primary-900 dark:color-primary-50">CAMI</span>
+      <span class="text-primary-900 dark:text-primary-50">CAMI</span>
     </NavBrand>
     <NavHamburger class="order-3 m-0 ml-3 lg:hidden" />
     <NavUl
@@ -36,6 +50,7 @@
       <NavLi class="lg:mb-0 lg:px-2" href="/docs/overview">Docs</NavLi>
       <NavLi class="lg:mb-0 lg:px-2" href="/plugins">Plugins</NavLi>
       <NavLi class="lg:mb-0 lg:px-2" href="/blog">Blog</NavLi>
+      <NavLi class="lg:mb-0 lg:px-2" href="/download">{m.header_down()}</NavLi>
     </NavUl>
 
     <div class="order-1 ml-auto flex items-center lg:order-2">
@@ -55,6 +70,13 @@
   </Navbar>
 </header>
 
-<div class="md:mx-auto lg:flex">
+<div class="mb-4 md:mx-auto lg:flex">
   {@render children()}
 </div>
+
+<Footer class="bg-gray-50 dark:bg-gray-800">
+  <FooterCopyright href="/" by="CAMI™" year={2025} />
+  <FooterLinkGroup class="mt-3 flex flex-wrap items-center text-sm text-gray-500 sm:mt-0 dark:text-gray-400">
+    <FooterLink href="/">{m.header_about()}</FooterLink>
+  </FooterLinkGroup>
+</Footer>

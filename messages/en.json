@@ -1,6 +1,7 @@
 {
   "$schema": "https://inlang.com/schema/inlang-message-format",
-  "hello_world": "Hello, {name} from en!",
+  "header_down": "Download",
+  "header_about": "About",
   "documentation": {
     "name": "Documentation",
     "desc": "Documentation pages"
@@ -13,5 +14,10 @@
     "name": "Plugins",
     "desc": "How to develop plugins"
   },
-  "home_desc1": "A collaborative, open source plateform to explore cellular automata"
+  "home_desc1": "A collaborative, open source plateform to explore cellular automata",
+  "home_title1": "What are cellular automaton ?",
+  "home_desc2_1": "A cellular automaton is a type of turn-based zero-player game where the evolution between two steps are defined by mathematical rules.",
+  "home_desc2_2": "The most well known is Conway's game of life, created by mathematician John Conway in 1970.",
+  "home_img_desc_1": "Conway's Game of Life: a planer / spaceship",
+  "home_down": "Download now"
 }
