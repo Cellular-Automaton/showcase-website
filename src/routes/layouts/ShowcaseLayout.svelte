@@ -51,6 +51,7 @@
       <NavLi class="lg:mb-0 lg:px-2" href="/plugins">Plugins</NavLi>
       <NavLi class="lg:mb-0 lg:px-2" href="/blog">Blog</NavLi>
       <NavLi class="lg:mb-0 lg:px-2" href="/download">{m.header_down()}</NavLi>
+      <NavLi class="lg:mb-0 lg:px-2" href="/team">{m.team_title()}</NavLi>
     </NavUl>
 
     <div class="order-1 ml-auto flex items-center lg:order-2">
@@ -70,11 +71,11 @@
   </Navbar>
 </header>
 
-<div class="mb-4 md:mx-auto lg:flex">
+<div class="mb-4 min-h-[81vh] md:mx-auto lg:flex">
   {@render children()}
 </div>
 
-<Footer class="bg-gray-50 dark:bg-gray-800">
+<Footer class="z-100 bg-gray-50 dark:bg-gray-800">
   <FooterCopyright href="/" by="CAMI™" year={2025} />
   <FooterLinkGroup class="mt-3 flex flex-wrap items-center text-sm text-gray-500 sm:mt-0 dark:text-gray-400">
     <FooterLink href="/">{m.header_about()}</FooterLink>

@@ -20,5 +20,11 @@
   "home_desc2_1": "C'est un type de turn-based jeu sans joueur ou les évolutions entre deux étapes sont définies par des opérations mathématiques",
   "home_desc2_2": "Le plus connu est le jeu de la vie de Conway, créé par le mathématicien John Conway en 1970.",
   "home_img_desc_1": "Jeu de la vie: un «planeur»",
-  "home_down": "Télécharger CAMI"
+  "home_down": "Télécharger CAMI",
+  "team_title": "L'équipe",
+  "team_desc": "Des développeurs passionnés",
+  "team_doudou": "",
+  "team_louis": "",
+  "team_aria": "",
+  "team_lukac": ""
 }
