@@ -1,19 +1,8 @@
 <script lang="ts">
   import { page } from '$app/state';
-  import {
-    Navbar,
-    NavBrand,
-    NavHamburger,
-    NavUl,
-    NavLi,
-    Button,
-    DarkMode,
-    ButtonGroup,
-    Footer,
-    FooterCopyright,
-    FooterLinkGroup,
-    FooterLink
-  } from 'flowbite-svelte';
+  import Navbar from 'flowbite-svelte/Navbar.svelte';
+  import NavBrand from 'flowbite-svelte/NavBrand.svelte';
+  import { NavHamburger, NavUl, NavLi, Button, DarkMode, ButtonGroup, Footer, FooterCopyright, FooterLinkGroup, FooterLink } from 'flowbite-svelte';
   import { getLocale, setLocale } from '$lib/paraglide/runtime.js';
   import { m } from '$lib/paraglide/messages.js';
 
