@@ -8,7 +8,7 @@ import rehypeSlug from 'rehype-slug';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-const path_to_layout = join(__dirname, './src/routes/blog/layout.svelte');
+const path_to_layout = join(__dirname, './src/routes/blog/+layout.svelte');
 
 const config = defineConfig({
   layout: {
@@ -31,10 +31,7 @@ const config = defineConfig({
   },
 
   remarkPlugins: [],
-  rehypePlugins: [
-    rehypeSlug,
-    rehypeAutolinkHeadings
-  ]
+  rehypePlugins: [rehypeSlug, rehypeAutolinkHeadings]
 });
 
 export default config;
