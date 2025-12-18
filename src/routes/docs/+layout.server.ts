@@ -1,4 +1,4 @@
-import type { PageServerLoad } from './overview/$types.js';
+import type { PageServerLoad } from './plugins/$types.js';
 
 const json = (r: Response) => r.json();
 export const prerender = true;
