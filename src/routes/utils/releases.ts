@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from 'axios';
 import { GITHUB_KEY } from '$env/static/private';
 
 type GithubAsset = {
@@ -28,12 +28,18 @@ type GithubResponse = {
 };
 
 export type Releases = {
-  name: string,
-  tag: string,
-  url: string,
-  released: string,
+  name: string;
+  tag: string;
+  url: string;
+  released: string;
   windows: GithubAsset[];
   linux: GithubAsset[];
+  macos: GithubAsset[];
+};
+
+export type ReleaseHolder = {
+  name: string;
+  releases: Releases[];
 };
 
 export async function getReleases(repoName: string) {
@@ -46,21 +52,22 @@ export async function getReleases(repoName: string) {
     })
     .then((data) => {
       data.data?.forEach((item) => {
-        releases.push({ windows: [], linux: [], name: item.name, tag: item.tag_name, released: item.published_at, url: item.html_url });
+        releases.push({ windows: [], linux: [], macos: [], name: item.name, tag: item.tag_name, released: item.published_at, url: item.html_url });
         item.assets.forEach((asset) => {
-          if (asset.name.includes('windows')) {
+          if (asset.name.toLowerCase().includes('windows')) {
             releases.at(-1)?.windows.push(asset);
-          } else if (asset.name.includes('linux')) {
+          } else if (asset.name.toLowerCase().includes('linux')) {
             releases.at(-1)?.linux.push(asset);
+          } else if (asset.name.toLowerCase().includes('macos')) {
+            releases.at(-1)?.macos.push(asset);
           }
         });
       });
     })
     .catch((err) => {
-      console.log(err.message)
+      console.log(err.message);
     });
-  releases = releases.filter((item) => item.linux.length > 0 || item.windows.length > 0)
+  releases = releases.filter((item) => item.linux.length > 0 || item.windows.length > 0);
 
   return releases;
-
 }

@@ -1,21 +1,13 @@
 <script lang="ts">
   import { page } from '$app/state';
-  import {
-    Navbar,
-    NavBrand,
-    NavHamburger,
-    NavUl,
-    NavLi,
-    Button,
-    DarkMode,
-    ButtonGroup,
-    Footer,
-    FooterCopyright,
-    FooterLinkGroup,
-    FooterLink
-  } from 'flowbite-svelte';
+  import Navbar from 'flowbite-svelte/Navbar.svelte';
+  import NavBrand from 'flowbite-svelte/NavBrand.svelte';
+  import { NavHamburger, NavUl, NavLi, Button, DarkMode, ButtonGroup, Footer, FooterCopyright, FooterLinkGroup, FooterLink } from 'flowbite-svelte';
   import { getLocale, setLocale } from '$lib/paraglide/runtime.js';
   import { m } from '$lib/paraglide/messages.js';
+  import { GithubSolid } from 'flowbite-svelte-icons';
+  import { theme } from '$lib/store/theme.js';
+  import { onMount } from 'svelte';
 
   const languages = [
     {
@@ -27,10 +19,17 @@
       locale_name: 'en'
     }
   ];
+  const toggleTheme = () => {
+    theme.set($theme === 'light' ? 'dark' : 'light');
+  };
 
   let logo = '/images/cami_logo.svg';
   let { children } = $props();
   let activeUrl = $state(page.url.pathname);
+
+  onMount(() => {
+    theme.set(document.getElementsByTagName('html').item(0)?.className ?? 'light');
+  });
 </script>
 
 <header class="sticky top-0 z-51 w-full flex-none border-b border-gray-200 bg-gray-50 shadow-lg dark:border-gray-600 dark:bg-gray-900">
@@ -48,14 +47,16 @@
       }}
     >
       <NavLi class="lg:mb-0 lg:px-2" href="/docs/overview">Docs</NavLi>
-      <NavLi class="lg:mb-0 lg:px-2" href="/plugins">Plugins</NavLi>
+      <NavLi class="lg:mb-0 lg:px-2" href="/download/plugins">Plugins</NavLi>
       <NavLi class="lg:mb-0 lg:px-2" href="/blog">Blog</NavLi>
       <NavLi class="lg:mb-0 lg:px-2" href="/download">{m.header_down()}</NavLi>
       <NavLi class="lg:mb-0 lg:px-2" href="/team">{m.team_title()}</NavLi>
     </NavUl>
 
-    <div class="order-1 ml-auto flex items-center lg:order-2">
-      <DarkMode />
+    <div class="order-1 ml-auto flex items-center gap-2 lg:order-2">
+      <div onclick={toggleTheme} role="none">
+        <DarkMode />
+      </div>
       <ButtonGroup>
         {#each languages as language}
           <Button
@@ -75,9 +76,10 @@
   {@render children()}
 </div>
 
-<Footer class="z-100 bg-gray-50 dark:bg-gray-800">
+<Footer class="absolute z-100 w-full bg-gray-50 dark:bg-gray-800">
   <FooterCopyright href="/" by="CAMI™" year={2025} />
   <FooterLinkGroup class="mt-3 flex flex-wrap items-center text-sm text-gray-500 sm:mt-0 dark:text-gray-400">
+    <FooterLink href="https://github.com/cellular-automaton"><GithubSolid /></FooterLink>
     <FooterLink href="/">{m.header_about()}</FooterLink>
   </FooterLinkGroup>
 </Footer>

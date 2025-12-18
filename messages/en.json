@@ -19,12 +19,19 @@
   "home_desc2_1": "A cellular automaton is a type of turn-based zero-player game where the evolution between two steps are defined by mathematical rules.",
   "home_desc2_2": "The most well known is Conway's game of life, created by mathematician John Conway in 1970.",
   "home_img_desc_1": "Conway's Game of Life: a planer / spaceship",
-  "home_down": "Download now",
   "team_title": "The team",
   "team_desc": "Passionate open-source developpers",
   "team_doudou": "",
   "team_louis": "",
   "team_aria": "",
   "team_lukac": "",
-  "dow_more": "Plugins and visuals"
+  "dow_more": "Plugins",
+  "home_title2": "And what about CAMI ?",
+  "home_desc3_1": "Cami (Cellular Automata Manager & Intelligence) is a desktop app dedicated to the exploration and testing of cellular automata. Our goal is to be intuitive, in order to make the platform accessible to even non-developers. We also made some automata (Lenia, GoL & Wolfram) and hope people will share some more.",
+  "home_desc3_2": "We decided to be open-source, in order to be collaborative. If you ever encounter a bug or think of a feature you'd like to see, please send us feedback via Github !",
+  "home_title_1_1": "Lenia",
+  "home_desc2_11": "Lenia is a project initiated in 2015 by Bert Chan, evolving from Conway's Game of Life by introducing smooth, continuous, and generalized rules. This transformation produces complex autonomous patterns—often called «lifeforms», that exhibit almost organic behaviors, resembling biological cells far more closely than traditional cellular automata.",
+  "home_desc2_12": "It's also the name of the family of life forms, in which more than 400 species have been observed as of today (2025).",
+  "home_down": "Download now",
+  "header_plugins": "Plugins developed by us"
 }

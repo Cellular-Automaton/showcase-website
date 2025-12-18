@@ -1,10 +1,10 @@
 <script lang="ts">
   import { theme } from '$lib/store/theme.js';
-  import Overview from '$lib/docs/overview.md';
+  import Plugin from '$lib/docs/plugins.md';
 </script>
 
 <article class={$theme + ' mt-10 flex flex-col justify-center'}>
-  <Overview />
+  <Plugin />
 </article>
 
 <style>
@@ -35,7 +35,7 @@
     color: var(--color-slate-500);
   }
   article :global(li) {
-    color: var(--color-slate-500);
+    color: var(--color-slate-400);
     list-style-type: disc;
   }
 
