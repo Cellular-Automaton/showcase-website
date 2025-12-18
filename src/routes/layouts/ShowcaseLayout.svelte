@@ -16,6 +16,7 @@
   } from 'flowbite-svelte';
   import { getLocale, setLocale } from '$lib/paraglide/runtime.js';
   import { m } from '$lib/paraglide/messages.js';
+  import { GithubSolid } from 'flowbite-svelte-icons';
 
   const languages = [
     {
@@ -77,6 +78,7 @@
 <Footer class="bg-gray-50 dark:bg-gray-800">
   <FooterCopyright href="/" by="CAMI™" year={2025} />
   <FooterLinkGroup class="mt-3 flex flex-wrap items-center text-sm text-gray-500 sm:mt-0 dark:text-gray-400">
+    <FooterLink href="https://github.com/cellular-automaton"><GithubSolid /></FooterLink>
     <FooterLink href="/">{m.header_about()}</FooterLink>
   </FooterLinkGroup>
 </Footer>
