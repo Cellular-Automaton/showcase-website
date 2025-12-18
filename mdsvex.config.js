@@ -12,7 +12,7 @@ const path_to_layout = join(__dirname, './src/routes/blog/+layout.svelte');
 
 const config = defineConfig({
   layout: {
-    componentLayout: path_to_layout
+    // componentLayout: path_to_layout
   },
   extensions: ['.svelte.md', '.md', '.svx'],
 

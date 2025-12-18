@@ -7,6 +7,6 @@
 </svelte:head>
 
 <article>
-  <h1 class="dark:text-primary-50">{title}</h1>
+  <h1>{title}</h1>
   <slot />
 </article>

@@ -1,12 +1,12 @@
 ---
-title: My First Blog Post
+title: Starting a blog
 date: 2025-12-01
+description: CAMI blog
 ---
 
-# My First Blog Post
+## CAMI: a blog
 
-This is my first blog post using **mdsvex** and SvelteKit!
+We're launching a blog about things we discovered during development, stuff
+that interest us about cellular automata & other discoveries.
 
-## Introduction
-
-Welcome to my blog!
+Stay tuned for the first post.
