@@ -35,7 +35,7 @@
   {activeUrl}
   params={{ x: -50, duration: 50 }}
   classes={{ nonactive: 'p-2', active: 'p-2' }}
-  class="z-50 h-full overflow-y-auto px-4 pt-20"
+  class="h-full overflow-y-auto px-4 pt-20"
 >
   <SidebarGroup>
     {#each Object.entries(pages) as [key, value] (key)}

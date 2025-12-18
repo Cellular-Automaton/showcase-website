@@ -76,7 +76,7 @@
   {@render children()}
 </div>
 
-<Footer class="z-100 bg-gray-50 dark:bg-gray-800">
+<Footer class="absolute z-100 w-full bg-gray-50 dark:bg-gray-800">
   <FooterCopyright href="/" by="CAMI™" year={2025} />
   <FooterLinkGroup class="mt-3 flex flex-wrap items-center text-sm text-gray-500 sm:mt-0 dark:text-gray-400">
     <FooterLink href="https://github.com/cellular-automaton"><GithubSolid /></FooterLink>
