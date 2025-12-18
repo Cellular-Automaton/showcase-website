@@ -2,7 +2,6 @@
   import { page } from '$app/state';
   import { Sidebar, SidebarGroup, SidebarButton, SidebarDropdownWrapper, SidebarItem, uiHelpers } from 'flowbite-svelte';
   import { getContext, type Snippet } from 'svelte';
-  import { m } from '$lib/paraglide/messages.js';
   import type { Writable } from 'svelte/store';
   import type { PageTitleEntry } from '../utils/index.js';
 
