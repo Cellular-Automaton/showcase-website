@@ -23,7 +23,7 @@ jobs:
           script: |
             cd ${{ secrets.APP_DIR }}
             git pull
-            npm install
+            pnpm install
             npm run build
             sudo rm -r ${{ secrets.DEPLOYED_DIR }}/build
             sudo cp -r ./build ${{ secrets.DEPLOYED_DIR }}
