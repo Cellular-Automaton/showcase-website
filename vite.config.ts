@@ -12,6 +12,9 @@ export default defineConfig({
       outdir: './src/lib/paraglide'
     })
   ],
+  server: {
+    watch: { usePolling: true }
+  },
   test: {
     expect: { requireAssertions: true },
     projects: [
