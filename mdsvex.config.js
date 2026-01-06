@@ -5,6 +5,7 @@ import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeSlug from 'rehype-slug';
+import remarkMath from 'remark-math';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -30,7 +31,7 @@ const config = defineConfig({
     }
   },
 
-  remarkPlugins: [],
+  remarkPlugins: [remarkMath],
   rehypePlugins: [rehypeSlug, rehypeAutolinkHeadings]
 });
 
