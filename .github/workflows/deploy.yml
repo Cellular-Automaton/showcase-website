@@ -23,8 +23,5 @@ jobs:
           script: |
             cd ${{ secrets.APP_DIR }}
             git pull
-            npm install
-            npm run build
-            sudo rm -r ${{ secrets.DEPLOYED_DIR }}/build
-            sudo cp -r ./build ${{ secrets.DEPLOYED_DIR }}
+            docker compose -f ./docker-compose.prod.yml up --build --detach
             sudo systemctl restart nginx.service

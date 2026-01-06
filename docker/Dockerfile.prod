@@ -1,0 +1,24 @@
+FROM node:22 AS base
+
+ARG app_env=dev
+ENV NODE_ENV=${app_env}
+
+RUN npm i -g pnpm
+
+WORKDIR /app
+
+COPY package.json ./
+COPY pnpm-lock.yaml ./
+
+RUN pnpm i
+COPY . ./
+RUN pnpm run build
+
+FROM base AS build
+
+WORKDIR /app
+COPY --from=base /app .
+
+ENV HOST=0.0.0.0
+EXPOSE 5000
+CMD ["node", "build"]

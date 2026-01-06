@@ -1,39 +1,20 @@
-<script>
-  import Background from '$lib/Background.svelte';
-  import Footer from '$lib/Footer.svelte';
-  import Header from '$lib/Header.svelte';
-  import logo from '$lib/images/Logo.svg';
-  import { page } from '$app/state';
+<script lang="ts">
   import '../app.css';
-  import '../styles.css';
+  import { locales, localizeHref } from '$lib/paraglide/runtime';
+  import { page } from '$app/state';
+  import ShowcaseLayout from './layouts/ShowcaseLayout.svelte';
+
+  let { children } = $props();
 </script>
 
-<svelte:head>
-  <link rel="icon" type="image/svg" href={logo} />
-</svelte:head>
-
-<div class="app">
-  <Background />
-  <Header {page} />
-  <main>
-    <slot />
+<ShowcaseLayout>
+  <main class="min-w-0 flex-auto divide-y lg:static lg:max-h-full lg:overflow-visible dark:divide-gray-700">
+    {@render children()}
   </main>
-  <Footer />
+</ShowcaseLayout>
+
+<div style="display:none">
+  {#each locales as locale}
+    <a href={localizeHref(page.url.pathname, { locale })}>{locale}</a>
+  {/each}
 </div>
-
-<style>
-  .app {
-    min-height: 100vh;
-    background-color: theme('colors.primary.0');
-    /* overflow-x: hidden; */
-    max-width: 100%;
-    /* display: flex; */
-    /* flex-direction: column; */
-  }
-
-  main {
-    z-index: 10;
-    min-height: 75vh;
-    overflow-y: visible;
-  }
-</style>

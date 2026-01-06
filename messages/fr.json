@@ -1,0 +1,38 @@
+{
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+  "header_down": "Télécharger",
+  "header_about": "À propos",
+  "hello_world": "Hello, {name} from fr!",
+  "documentation": {
+    "name": "Documentation",
+    "desc": "Pages de documentation"
+  },
+  "overview": {
+    "name": "À propos",
+    "desc": "Page d'entrée pour la documentatio"
+  },
+  "plugins": {
+    "name": "Plugins",
+    "desc": "Comment développer son plugin"
+  },
+  "home_desc1": "Une plateforme collaborative et open source pour explorer les automates cellulaires",
+  "home_title1": "Qu'est-ce qu'un automate cellulaire ?",
+  "home_desc2_1": "C'est un type de turn-based jeu sans joueur ou les évolutions entre deux étapes sont définies par des opérations mathématiques",
+  "home_desc2_2": "Le plus connu est le jeu de la vie de Conway, créé par le mathématicien John Conway en 1970.",
+  "home_img_desc_1": "Jeu de la vie: un «planeur»",
+  "team_title": "L'équipe",
+  "team_desc": "Des développeurs passionnés",
+  "team_doudou": "",
+  "team_louis": "",
+  "team_aria": "",
+  "team_lukac": "",
+  "dow_more": "Plugins",
+  "home_title2": "Et CAMI ?",
+  "home_desc3_1": "Cami (Cellular Automata Manager & Intelligence) est notre plateforme d'affichage, de test et de partage d'automates cellulaires. C'est une application desktop qui se veut intuitive et accessible à tous·tes, développeurs ou non. Nous avons développés certains automates (Lénia, GoL & Wolfram) et invitons chaque personne qui le souhaite à faire de même.",
+  "home_desc3_2": "Le code de nos apps et des automates est open-source, et nous souhaitons rester <b>gratuits</b> ansi que <b>collaboratifs</b>. Si vous rencontrez des bugs ou souhaitez améliorer la plateforme de quelconque façon, nous vous invitons à nous faire les retours.",
+  "home_title_1_1": "Lenia",
+  "home_desc2_11": "Lenia est un project créé en 2015 by Bert Chan, partant du Jeud de la Vie de John Conway, mais qui introduit des règles plus complexes, avec un espace, un temps et des états continus. Les modèls autonomes générés sont souvent appelés des «formes de vies», dont le comportement est presque organique, ressemblant à des cellules de manière bien plus proche qu'un automate cellulaire plus classique.",
+  "home_desc2_12": "C'est aussi le nom de la familles des modèles qui sont observés, dont on comptabilise ajourd'hui (2025) plus de 400 formes différentes.",
+  "home_down": "Télécharger CAMI",
+  "header_plugins": "Plugins que nous avons développés"
+}
