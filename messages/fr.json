@@ -34,5 +34,6 @@
   "home_desc2_11": "Lenia est un project créé en 2015 by Bert Chan, partant du Jeud de la Vie de John Conway, mais qui introduit des règles plus complexes, avec un espace, un temps et des états continus. Les modèls autonomes générés sont souvent appelés des «formes de vies», dont le comportement est presque organique, ressemblant à des cellules de manière bien plus proche qu'un automate cellulaire plus classique.",
   "home_desc2_12": "C'est aussi le nom de la familles des modèles qui sont observés, dont on comptabilise ajourd'hui (2025) plus de 400 formes différentes.",
   "home_down": "Télécharger CAMI",
-  "header_plugins": "Plugins que nous avons développés"
+  "header_plugins": "Plugins que nous avons développés",
+  "blog_lang_warning": "Les pages de blog sont ajourd'hui seulement disponibles en anglais."
 }
