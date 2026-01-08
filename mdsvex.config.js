@@ -1,22 +1,25 @@
 import { escapeSvelte } from 'mdsvex';
 import { defineMDSveXConfig as defineConfig } from 'mdsvex';
 import { bundledLanguages, getSingletonHighlighter } from 'shiki';
-import { join, dirname } from 'path';
-import { fileURLToPath } from 'url';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeSlug from 'rehype-slug';
+import remarkMath from 'remark-math';
+import rehypeMathJax from 'rehype-mathjax';
+import { visit } from 'unist-util-visit';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-const path_to_layout = join(__dirname, './src/routes/blog/+layout.svelte');
+export function remarkEscapeBraces() {
+  return (tree) => {
+    visit(tree, 'math', (node) => {
+      node.value = node.value.replace(/\{/g, '\\u007B').replace(/\}/g, '\\u007D');
+    });
+  };
+}
 
 const config = defineConfig({
-  layout: {
-    // componentLayout: path_to_layout
-  },
   extensions: ['.svelte.md', '.md', '.svx'],
 
   smartypants: {
+    quotes: false,
     dashes: 'oldschool'
   },
   highlight: {
@@ -30,8 +33,8 @@ const config = defineConfig({
     }
   },
 
-  remarkPlugins: [],
-  rehypePlugins: [rehypeSlug, rehypeAutolinkHeadings]
+  remarkPlugins: [remarkMath, remarkEscapeBraces],
+  rehypePlugins: [rehypeMathJax, rehypeSlug, rehypeAutolinkHeadings]
 });
 
 export default config;

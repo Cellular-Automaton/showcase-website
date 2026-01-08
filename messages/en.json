@@ -33,5 +33,6 @@
   "home_desc2_11": "Lenia is a project initiated in 2015 by Bert Chan, evolving from Conway's Game of Life by introducing smooth, continuous, and generalized rules. This transformation produces complex autonomous patterns—often called «lifeforms», that exhibit almost organic behaviors, resembling biological cells far more closely than traditional cellular automata.",
   "home_desc2_12": "It's also the name of the family of life forms, in which more than 400 species have been observed as of today (2025).",
   "home_down": "Download now",
-  "header_plugins": "Plugins developed by us"
+  "header_plugins": "Plugins developed by us",
+  "blog_lang_warning": "Blog pages are available only in English as of today."
 }
