@@ -1,5 +1,6 @@
 import type { PageServerLoad } from './$types';
 
+export const prerender = true;
 export const load: PageServerLoad = async () => {
   const postFiles = import.meta.glob('/src/posts/blog/*.md');
   const posts = await Promise.all(
@@ -7,9 +8,7 @@ export const load: PageServerLoad = async () => {
       const post = await resolver();
       const metadata = post.metadata;
 
-      const slug = metadata.slug ||
-        path.split('/').pop()?.replace('.md', '') ||
-        metadata.title.toLowerCase().replace(/\s+/g, '-');
+      const slug = metadata.slug || path.split('/').pop()?.replace('.md', '') || metadata.title.toLowerCase().replace(/\s+/g, '-');
 
       return { ...metadata, slug };
     })
