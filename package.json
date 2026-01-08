@@ -59,6 +59,7 @@
     "flowbite-typography": "^1.0.5",
     "glob": "^13.0.0",
     "globals": "^16.0.0",
+    "mathlifier": "^3.4.0",
     "mdsvex": "^0.12.6",
     "playwright": "^1.53.0",
     "prettier": "^3.4.2",
@@ -92,6 +93,8 @@
     ]
   },
   "dependencies": {
-    "@sveltejs/adapter-static": "^3.0.10"
+    "@sveltejs/adapter-static": "^3.0.10",
+    "rehype-mathjax": "^7.1.0",
+    "unist-util-visit": "^5.0.0"
   }
 }

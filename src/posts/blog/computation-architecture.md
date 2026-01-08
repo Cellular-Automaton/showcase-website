@@ -1,12 +1,13 @@
 ---
 title: Why Cellular Automaton Simulations Benefit from a Plugin-Based Computation Architecture
 date: 2026-01-05
-description: CAMI blog
+description: This article presents the rationale behind designing a cellular automaton platform around independent computation plugins. We explain how this approach enables mathematical flexibility, performance isolation, and long-term extensibility, while supporting heterogeneous automata within a single desktop application.
 ---
 
 ## Why Cellular Automaton Simulations Benefit from a Plugin-Based Computation Architecture
 
 **CAMI — Cellular Automata Platform**
+
 Student Engineers
 
 ---
@@ -56,14 +57,16 @@ Each plugin is dynamically loaded and responsible for computing the next state o
 
 The Game of Life is a discrete cellular automaton with binary states. The update rule is defined as:
 
+<div class="math">{`
 $$
 S_t+1(x) =
-\begin{cases}
-1 & \text{if } S_t(x) = 1 \text{ and } n \in \{2,3\} \\
-1 & \text{if } S_t(x) = 0 \text{ and } n = 3 \\
-0 & \text{otherwise}
-\end{cases}
+\\begin{cases}
+1 & \\text{if } S_t(x) = 1 \\text{ and } n \\in \{2,3\} \\\\
+1 & \\text{if } S_t(x) = 0 \\text{ and } n = 3 \\\\
+0 & \\text{otherwise}
+\\end{cases}
 $$
+`}</div>
 
 Where $n$ denotes the number of active neighboring cells.
 
@@ -75,9 +78,11 @@ This automaton serves as a baseline plugin, illustrating minimal computational o
 
 Wolfram automata are one-dimensional systems defined by a local transition function:
 
+<div class="math">{`
 $$
 S_{t+1}(i) = f(S_t(i-1), S_t(i), S_t(i+1))
 $$
+`}</div>
 
 The function $f$ is derived from a rule number, such as Rule 30 or Rule 110.
 
@@ -95,9 +100,11 @@ Each cell state $S(x) \in [0,1]$ represents a continuous activation level. The e
 
 The first step consists in computing a local potential field $A$ by convolving the current state with a kernel function $K$:
 
-```latex
-A(x) = (K * S)(x) = \sum_{y \in \mathcal{N}(x)} K(x - y) \cdot S(y)
-```
+<div class="math">{`
+$$
+A(x) = (K * S)(x) = \\sum_{y \\in \\mathcal{N}(x)} K(x - y) \\cdot S(y)
+$$
+`}</div>
 
 The kernel $K$ is typically radially symmetric and parameterized by a kernel radius and a kernel profile (e.g. polynomial or Gaussian-based functions). This convolution introduces a fundamentally different computational pattern compared to local neighborhood counting in discrete automata.
 
@@ -105,9 +112,11 @@ The kernel $K$ is typically radially symmetric and parameterized by a kernel rad
 
 The aggregated potential $A(x)$ is then passed through a nonlinear growth function $G$, commonly defined as:
 
-```latex
-G(A) = \exp\left(-\frac{(A - \mu)^2}{2\sigma^2}\right) - \beta
-```
+<div class="math">{`
+$$
+G(A) = \\exp\\left(-\\frac{(A - \\mu)^2}{2\\sigma^2}\\right) - \\beta
+$$
+`}</div>
 
 where:
 
@@ -121,12 +130,14 @@ This function governs the emergence, stability, or decay of spatial patterns.
 
 The state update is performed using an explicit time integration scheme:
 
+<div class="math">{`
 $$
-S_{t+1}(x) = \mathrm{clip}\left(
-S_t(x) + \Delta t \cdot G(A(x)),
+S_{t+1}(x) = \\mathrm{clip}\\left(
+S_t(x) + \\Delta t \\cdot G(A(x)),
 0, 1
-\right)
+\\right)
 $$
+`}</div>
 
 where $\Delta t$ is a simulation timestep and the clipping operation enforces numerical stability by bounding the state values.
 
@@ -158,9 +169,11 @@ This isolation ensures that architectural decisions required for Lenia do not im
 
 In multi-channel automata, each cell contains a vector of values:
 
+<div class="math">{`
 $$
-S(x) = (c_1, c_2, \dots, c_n)
+S(x) = (c_1, c_2, \\dots, c_n)
 $$
+`}</div>
 
 Update rules involve channel-wise interactions, weighted sums, and nonlinear coupling functions. Plugin isolation allows each automaton to define its own memory layout and update strategy without leaking abstractions.
 
