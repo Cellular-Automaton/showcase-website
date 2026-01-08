@@ -22,4 +22,9 @@ jobs:
           password: ${{ secrets.VPS_PASSWORD }}
           script: |
             cd ${{ secrets.APP_DIR }}
-            docker compose -f ./docker-compose.prod.yml up --build --detach
+            git pull
+            pnpm install
+            npm run build
+            sudo rm -r ${{ secrets.DEPLOYED_DIR }}/build
+            sudo cp -r ./build ${{ secrets.DEPLOYED_DIR }}
+            sudo systemctl restart nginx.service

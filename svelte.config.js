@@ -1,7 +1,9 @@
-import adapter from '@sveltejs/adapter-node';
+import adapter from '@sveltejs/adapter-static';
 import mdsvexConfig from './mdsvex.config.js';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import { mdsvex } from 'mdsvex';
+
+const dev = process.argv.includes('dev');
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -11,10 +13,19 @@ const config = {
   preprocess: [mdsvex(mdsvexConfig), vitePreprocess()],
 
   kit: {
-    // adapter-auto only supports some environments, see https://svelte.dev/docs/kit/adapter-auto for a list.
+    // adapter-auto only supports some environments, see https://kit.svelte.dev/docs/adapter-auto for a list.
     // If your environment is not supported, or you settled on a specific environment, switch out the adapter.
-    // See https://svelte.dev/docs/kit/adapters for more information about adapters.
-    adapter: adapter()
+    // See https://kit.svelte.dev/docs/adapters for more information about adapters.
+    appDir: 'app',
+    adapter: adapter({
+      fallback: '200.html'
+    }),
+    paths: {
+      base: dev ? '' : process.env.BASE_PATH
+    },
+    prerender: {
+      handleHttpError: 'warn'
+    }
   }
 };
 

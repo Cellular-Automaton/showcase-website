@@ -1,5 +1,6 @@
 import type { PageServerLoad } from './$types';
 
+export const prerender = true;
 export const load: PageServerLoad = async () => {
   const postFiles = import.meta.glob('/src/posts/blog/*.md');
   const posts = await Promise.all(
