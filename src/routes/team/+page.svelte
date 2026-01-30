@@ -51,7 +51,7 @@
       <Card size="lg" class="pd-5 sm:p-8 md:p-10">
         <div class="flex flex-col items-center">
           <Avatar size="lg" src="https://avatars.githubusercontent.com/u/91691407?v=4" />
-          <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">Aria Florentin</h5>
+          <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">A. S. Florentin</h5>
           <span class="text-sm text-gray-500 dark:text-gray-400">{m.team_aria()}</span>
           <div class="mt-4 flex space-x-3 lg:mt-6 rtl:space-x-reverse">
             <Button href="https://github.com/SamuelFlorentin/" target="_blank">
