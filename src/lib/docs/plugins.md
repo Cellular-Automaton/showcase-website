@@ -2,8 +2,8 @@
 
 ## 0/ Plugin Explanation
 
-    Our program design on the cellular automaton part correspond to the plug and play phylosophy. For us plugins are native nodejs addon created in other language (for now only c++). And used
-    to run the cellular automaton simulation. Our goal is to make the environment as easy as possible to implement your own cellular automaton, to be able to download and use other creation as well. To achieve this goal we have created some documentation to facilitate plugin creation and we are thinking about implementation in other language such as python or rust. We also want to create a custom library that would support our program and the plugin creation much more.
+Our program design on the cellular automaton part correspond to the plug and play phylosophy. For us plugins are native nodejs addon created in other language (for now only c++). And used
+to run the cellular automaton simulation. Our goal is to make the environment as easy as possible to implement your own cellular automaton, to be able to download and use other creation as well. To achieve this goal we have created some documentation to facilitate plugin creation and we are thinking about implementation in other language such as python or rust. We also want to create a custom library that would support our program and the plugin creation much more.
 
 ## 1/ Requirement
 

@@ -5,4 +5,3 @@ export const load: LayoutServerLoad = ({ params }) => {
     slug: params.slug
   };
 };
-

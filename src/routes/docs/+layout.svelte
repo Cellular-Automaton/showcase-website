@@ -5,5 +5,5 @@
 </script>
 
 <SidebarLayout {data}>
-  {@render children()}
+    {@render children()}
 </SidebarLayout>
