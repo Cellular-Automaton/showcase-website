@@ -1,10 +1,10 @@
 <script lang="ts">
   import { theme } from '$lib/store/theme.js';
-  import Overview from '$lib/docs/overview.md';
+  import Cli from '$lib/docs/cli.md';
 </script>
 
-<article class={$theme + ' mt-10'}>
-  <Overview />
+<article class={$theme + ' mt-10 flex flex-col justify-center'}>
+  <Cli />
 </article>
 
 <style>
@@ -35,7 +35,7 @@
     color: var(--color-slate-500);
   }
   article :global(li) {
-    color: var(--color-slate-500);
+    color: var(--color-slate-400);
     list-style-type: disc;
   }
   article :global(a) {
@@ -44,26 +44,12 @@
     list-style-type: disc;
   }
 
-  :global(code) {
-    margin-bottom: 9vh;
-    border-radius: 100px;
+  :global(pre) {
+    padding: 1vh 1vw;
+    border-radius: 5px;
   }
   :global(article) {
     color: var(--color-slate-500);
-  }
-
-  /* dark mode */
-  article.dark :global(h1) {
-    font-size: 5vh;
-    color: var(--color-secondary-400);
-  }
-  article.dark :global(h2) {
-    font-size: 3.5vh;
-    color: var(--color-secondary-500);
-    margin: 1vh 0vw 0.5vh;
-  }
-  article.dark :global(ul) {
-    color: var(--color-slate-600);
   }
   article :global(hr) {
     margin-top: 2vh;

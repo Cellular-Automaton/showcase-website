@@ -23,6 +23,7 @@ const config = defineConfig({
     dashes: 'oldschool'
   },
   highlight: {
+    optimise: false,
     highlighter: async (code, lang = 'text') => {
       const highlighter = await getSingletonHighlighter({
         themes: ['one-dark-pro'],

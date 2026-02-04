@@ -9,12 +9,16 @@
   },
   "overview": {
     "name": "À propos",
-    "desc": "Page d'entrée pour la documentatio"
+    "desc": "Page d'entrée pour la documentation"
   },
   "plugins": {
-    "name": "Plugins",
-    "desc": "Comment développer son plugin"
+    "name": "Plugins d'algorithmes",
+    "desc": "Comment développer son plugin d'algorithme (en anglais)"
   },
+  "visual_name": "Plugins visuels",
+  "visual_desc": "Comment développer son plugin visuel (en anglais)",
+  "cli_name": "Outil cli",
+  "cli_desc": "Cli npm pour commencer le développement d'un visuel ou algorithme (en anglais)",
   "home_desc1": "Une plateforme collaborative et open source pour explorer les automates cellulaires",
   "home_title1": "Qu'est-ce qu'un automate cellulaire ?",
   "home_desc2_1": "C'est un type de turn-based jeu sans joueur ou les évolutions entre deux étapes sont définies par des opérations mathématiques",

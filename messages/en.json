@@ -11,9 +11,13 @@
     "desc": "The entry page for documentations"
   },
   "plugins": {
-    "name": "Plugins",
-    "desc": "How to develop plugins"
+    "name": "Algorithm lugins",
+    "desc": "How to develop algorithm plugins"
   },
+  "visual_name": "Visual plugins",
+  "visual_desc": "How to develop visual plugins",
+  "cli_name": "Cli tool",
+  "cli_desc": "Npm cli to kick-start visual or algorithm plugins",
   "home_desc1": "A collaborative, open source plateform to explore cellular automata",
   "home_title1": "What are cellular automaton ?",
   "home_desc2_1": "A cellular automaton is a type of turn-based zero-player game where the evolution between two steps are defined by mathematical rules.",

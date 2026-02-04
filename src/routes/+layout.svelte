@@ -54,7 +54,7 @@
 </script>
 
 <ShowcaseLayout>
-  <main class="min-w-0 flex-auto divide-y lg:static lg:max-h-full lg:overflow-visible dark:divide-gray-700">
+  <main class="lg:static lg:max-h-full lg:overflow-visible dark:divide-gray-700">
     {@render children()}
   </main>
 </ShowcaseLayout>

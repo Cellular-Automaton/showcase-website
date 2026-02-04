@@ -24,9 +24,19 @@ export const fetchDocumentationPages = () => {
           description: m['overview.desc']()
         },
         {
-          path: '/docs/plugins',
+          path: '/docs/algorithms',
           name: m['plugins.name'](),
           description: m['plugins.desc']()
+        },
+        {
+          path: '/docs/visuals',
+          name: m.visual_name(),
+          description: m.visual_desc()
+        },
+        {
+          path: '/docs/cli',
+          name: m.cli_name(),
+          description: m.cli_desc()
         }
       ]
     }
